@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+
+	<data>
+	
+		<record model="ir.ui.view" id="view_purchase_order_form_rate_currency">
+                <field name="name">purchase_order_form_rate_currency</field>
+                <field name="model">purchase.order</field>
+                <field name="inherit_id" ref="purchase.purchase_order_form"/>
+                <field name="arch" type="xml">
+	                <xpath expr="//field[@name='name']" position="after">
+	                	<field name="company_currency_id_default" invisible="1"/>
+	                	<field name="flag_currency" invisible="1"/>
+	                </xpath>
+	                <xpath expr="//field[@name='pricelist_id']" position="replace">
+	                	<field name="pricelist_id" domain="[('type','=','purchase')]"
+	                		   groups="product.group_purchase_pricelist" 
+	                		   on_change="onchange_pricelist_id(pricelist_id, company_currency_id_default)"/>
+	                </xpath>
+	                <xpath expr="//field[@name='pricelist_id']" position="after">
+	                    <field name="date_currency"
+	                    	   context="{'date_currency': date_currency}"
+	                    	   on_change="onchange_date_currency(date_currency, currency_id, company_currency_id_default)"
+	                    	   attrs="{'invisible': [('flag_currency','=', False)], 'required': [('flag_currency','=', True)]}"/>
+	                    <field name="res_currency_rate"
+	                    	   attrs="{'invisible': [('flag_currency','=', False)]}"/>
+	                </xpath>
+                </field>
+            </record>
+	
+	</data>
+
+</openerp>

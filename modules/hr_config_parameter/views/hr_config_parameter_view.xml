@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_hr_config_search">
+            <field name="model">hr.config_parameter</field>
+            <field name="arch" type="xml">
+                <search string="Config Properties">
+                    <field name="key" string="Key"/>
+                    <field name="value"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_hr_config_list">
+            <field name="model">hr.config_parameter</field>
+            <field name="arch" type="xml">
+                <tree string="Config Parameters">
+                    <field name="key"/>
+                    <field name="value"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_hr_config_form">
+            <field name="model">hr.config_parameter</field>
+            <field name="arch" type="xml">
+                <form string="Config Parameters" version="7.0">
+                  <sheet>
+                    <group>
+                        <field name="key"/>
+                        <field name="value"/>
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+        <!--act_window name="System Parameters" res_model="hr.config_parameter" id="hr_config_list_action"/-->
+        <record id="action_view_hr_config_parameter" model="ir.actions.act_window">
+            <field name="name">Parametros</field>
+            <field name="res_model">hr.config_parameter</field>
+            <field name="context">{'readonly_by_pass': True}</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_hr_config_list"/>
+        </record>
+
+        <!--menuitem id="ir_config_menu" name="System Parameters" parent="menu_ir_property" action="hr_config_list_action"/-->
+        <menuitem id="hr_config_parameter_menu"
+            action="action_view_hr_config_parameter"
+            parent="hr.menu_hr_configuration"
+            sequence="50"/>
+
+    </data>
+</openerp>

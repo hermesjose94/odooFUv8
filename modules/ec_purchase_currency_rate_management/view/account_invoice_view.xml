@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+
+	<data>
+	
+		<record model="ir.ui.view" id="account_invoice_rate_currency">
+                <field name="name">account_invoice_rate_currency</field>
+                <field name="model">account.invoice</field>
+                <field name="inherit_id" ref="account.invoice_supplier_form"/>
+                <field name="arch" type="xml">
+                	<xpath expr="//field[@name='partner_id']" position="after">
+                		<!-- <field name="company_currency_id_default" invisible="1"/> -->
+	                	<field name="flag_currency" invisible="1"/>
+                	</xpath>
+                	<xpath expr="//field[@name='currency_id']" position="replace">
+                		<field name="currency_id"/>
+                	</xpath>
+	                <xpath expr="//field[@name='currency_id']" position="after">
+	                    <field name="date_currency"
+	                    	   attrs="{'invisible': [('flag_currency','=', False)], 'required': [('flag_currency','=', True)]}"/>
+	                    <field name="res_currency_rate" attrs="{'invisible': [('flag_currency','=', False)]}"/>
+	                </xpath>
+                </field>
+            </record>
+	
+	</data>
+
+</openerp>

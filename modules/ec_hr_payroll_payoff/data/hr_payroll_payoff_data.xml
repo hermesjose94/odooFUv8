@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--parametros del modulo-->
+        <record id="hr_config_parameter_vacaciones" model="hr.config_parameter">
+            <field name="key">hr.payroll.codigos.salario.integral.vacaciones</field>
+            <field name="value">1,2</field>
+        </record>
+    </data>
+</openerp>

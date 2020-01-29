@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--parametros del modulo-->
+        <record id="hr_config_parameter_utilidades" model="hr.config_parameter">
+            <field name="key">hr.payroll.max.dias.año</field>
+            <field name="value">360</field>
+        </record>
+        <record id="hr_config_parameter_utilidades_2" model="hr.config_parameter">
+            <field name="key">hr.payroll.utilidades.mes.pago</field>
+            <field name="value">11</field>
+        </record>
+        <record id="hr_config_parameter_utilidades_3" model="hr.config_parameter">
+            <field name="key">hr.payroll.utilidades.dias.habiles</field>
+            <field name="value">242</field>
+        </record>
+        <record id="hr_config_parameter_utilidades_4" model="hr.config_parameter">
+            <field name="key">hr.payroll.codigos.salario.integral.utilidades</field>
+            <field name="value">10</field>
+        </record>
+        <record id="hr_config_parameter_utilidades_5" model="hr.config_parameter">
+            <field name="key">hr.payroll.codigos.nomina.utilidades</field>
+            <field name="value">60</field>
+        </record>
+        <!--<record id="hr_config_parameter_utilidades_6" model="hr.config_parameter">-->
+            <!--<field name="key">hr.payroll.utilidades.codigos.conceptos.variables</field>-->
+            <!--<field name="value">30</field>-->
+        <!--</record>-->
+    </data>
+</openerp>

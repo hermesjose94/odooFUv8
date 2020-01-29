@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_personal_info_view_inherit" model="ir.ui.view">
+            <field name="name">hr.personal.info.view.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Personal Information']" position="replace">
+                    <page string="Personal Information">
+                     <group>
+                         <group string="Datos Personales">
+                             <field name="nationality"/>
+                             <field name="passport_id"/>
+                             <field name="identification_id_2" on_change= "onchange_identification_id(identification_id_2,'identification_id_2')" placeholder="Ej. 19763505"/>
+                             <field name="rif" on_change="onchange_rif_er(rif)" placeholder="Ej. VEV012345678 o VEE012345678"/>
+                             <field name="personal_email" on_change="onchange_email_addr(personal_email,'personal_email')" string="Email" placeholder="Ej. cuenta@dominio.xxx"/>
+                             <field name="education"/>
+                             <field name="profesion_id"/>
+                             <field name="birthday" on_change="onchange_date_of_birth('birthday',birthday)"/>
+                             <field name="country_birth_id" string="Pais de nacimiento" options="{'create': false, 'create_edit': false, 'search_more':true}"/>
+                             <field name="state_id" string="Estado de nacimiento" options="{'create': false, 'create_edit': false, 'search_more':true}"/>
+                             <field name="city_id" string="Ciudad de nacimiento" domain = "[('estate_id', '=', state_id)]" options="{'create': false, 'create_edit': false, 'search_more':true}"/>
+                             <field name="employee_age" />
+                             <field name="marriage_certificate"/>
+                             <field name="marital_2"/>
+                             <field name="Nro_de_Hijos"/>
+                             <field name="grupo_sanguineo"/>
+                             <field name="factor_rh"/>
+                             <field name="gender"/>
+                         </group>
+                         <group string="Informacion de Contacto">
+                             <field name="street"/>
+                             <field name="house"/>
+                             <field name="piso"/>
+                             <field name="apto"/>
+                             <field name="state_id_res" options="{'create': false, 'create_edit': false, 'search_more':true}"/>
+                             <field name="city_id_res" domain = "[('estate_id', '=', state_id)]" options="{'create': false, 'create_edit': false, 'search_more':true}"/>
+                             <field name="telf_hab" placeholder="Ej. 0123-4567890" on_change="onchange_phone_number(telf_hab,'telf_hab')"/>
+                             <field name="telf_Contacto" placeholder="Ej. 0123-4567890" on_change="onchange_phone_number(telf_Contacto,'telf_Contacto')"/>
+                         </group>
+                     </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_employee_ci_view_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.ci.view.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                     <field name="identification_id_2" string="Cédula de identidad"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_employee_ci_filter" model="ir.ui.view">
+            <field name="name">hr.employee.ci.filter</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="/search/field[@name='name']" position="after">
+                     <field name="identification_id_2" string="Cedula"/>
+                </xpath>
+            </field>
+
+        </record>
+    </data>
+</openerp>

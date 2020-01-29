@@ -1,0 +1,143 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_ve_withholding
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-01 04:02+0000\n"
+"PO-Revision-Date: 2017-06-01 04:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ve_withholding
+#: model:ir.model,name:l10n_ve_withholding.model_account_period
+msgid "Account period"
+msgstr "Período Contable"
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/account.py:116
+#, python-format
+msgid "Error looking Fortnight !"
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/invoice.py:210
+#, python-format
+msgid "Global taxes defined, but they are not in invoice lines !"
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: model:ir.model,name:l10n_ve_withholding.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_ve_withholding
+#: model:ir.model,name:l10n_ve_withholding.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Impuesto de factura"
+
+#. module: l10n_ve_withholding
+#: model:ir.model,name:l10n_ve_withholding.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/invoice.py:115
+#, python-format
+msgid "No accounting moves were created.\n"
+" Please, Check if there are Taxes/Concepts to withhold in the Invoices!"
+msgstr "No se crearon Asientos Contables. \n"
+" Por favor, verifique si hay Impuestos/Conceptos a retener en las facturas!"
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/invoice.py:218
+#, python-format
+msgid "Tax base different!\n"
+"Click on compute to update the tax base."
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/invoice.py:224
+#, python-format
+msgid "Taxes are missing!\n"
+"Click on compute button."
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/account.py:117
+#, python-format
+msgid "There is no \"Special\" period defined for this date: %s."
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/invoice.py:114
+#, python-format
+msgid "Warning !"
+msgstr "Advertencia !"
+
+#. module: l10n_ve_withholding
+#: code:addons/l10n_ve_withholding/model/invoice.py:209
+#: code:addons/l10n_ve_withholding/model/invoice.py:217
+#: code:addons/l10n_ve_withholding/model/invoice.py:223
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: model:res.groups,name:l10n_ve_withholding.group_account_wh_manager
+msgid "Withhold / Manager"
+msgstr "Retención / Administrador"
+
+#. module: l10n_ve_withholding
+#: model:res.groups,name:l10n_ve_withholding.group_account_wh_user
+msgid "Withhold / User"
+msgstr "Retencion / Usuario"
+
+#. module: l10n_ve_withholding
+#: view:account.invoice:l10n_ve_withholding.wh_inv_customer
+#: view:account.invoice:l10n_ve_withholding.wh_inv_supplier
+#: model:ir.ui.menu,name:l10n_ve_withholding.menu_wh_configuration
+#: model:ir.ui.menu,name:l10n_ve_withholding.menu_withholdings
+#: view:res.partner:l10n_ve_withholding.wh_partner
+msgid "Withholdings"
+msgstr "Retención"
+
+#. module: l10n_ve_withholding
+#: view:account.invoice:l10n_ve_withholding.wh_inv_customer
+#: view:account.invoice:l10n_ve_withholding.wh_inv_supplier
+#: view:res.partner:l10n_ve_withholding.wh_partner
+msgid "isep"
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: view:account.invoice:l10n_ve_withholding.wh_inv_customer
+#: view:account.invoice:l10n_ve_withholding.wh_inv_supplier
+msgid "msep"
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: view:account.invoice:l10n_ve_withholding.wh_inv_customer
+#: view:account.invoice:l10n_ve_withholding.wh_inv_supplier
+#: view:res.partner:l10n_ve_withholding.wh_partner
+msgid "rsep"
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: view:account.invoice:l10n_ve_withholding.wh_inv_customer
+#: view:account.invoice:l10n_ve_withholding.wh_inv_supplier
+#: view:res.partner:l10n_ve_withholding.wh_partner
+msgid "vsep"
+msgstr ""
+
+#. module: l10n_ve_withholding
+#: view:account.invoice:l10n_ve_withholding.wh_inv_customer
+#: view:account.invoice:l10n_ve_withholding.wh_inv_supplier
+msgid "xsep"
+msgstr ""
+

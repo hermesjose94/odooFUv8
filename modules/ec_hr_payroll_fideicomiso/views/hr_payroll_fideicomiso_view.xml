@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="hr_payroll_fideicomiso_view" model="ir.ui.view">
+            <field name="name">hr.payroll.fideicomiso.view</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="before">
+                    <group col="4" string="Prestaciones Sociales">
+                        <group col="2">
+                            <field name="salario_mensual_fi" string="Salario Mensual"/>
+                            <field name="salario_integral_fi" string="Salario Integral Diario"/>
+                        </group>
+                        <group col="2">
+                            <field name="dias_adicionales" string="Días Adicionales" style="width: 25%%"/>
+                            <field name="dias_acumulados" string="Días a pagar" class="oe_no_button" style="width: 55%%"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <!--hr_contract-->
+         <!--<record id="hr_fideicomiso_contract_view_inherit" model="ir.ui.view">-->
+            <!--<field name="name">hr.fideicomiso.contract.view.inherit</field>-->
+            <!--<field name="model">hr.contract</field>-->
+            <!--<field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<xpath expr="//field[@name='advantages']" position="after">-->
+                    <!--<field name="fideicomiso" string="Prestaciones" readonly="1"/>-->
+                    <!--<field name="fecha_modificado" string="Última Modificación" readonly="1"/>-->
+                <!--</xpath>-->
+            <!--</field>-->
+        <!--</record>-->
+    </data>
+</openerp>

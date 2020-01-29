@@ -1,0 +1,1 @@
+import hr_contract_add_fields

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_hr_config_inherit" model="ir.ui.view">
+            <field name="name">hr settings for payroll</field>
+            <field name="model">hr.config.settings</field>
+            <field name="inherit_id" ref="hr.view_human_resources_configuration"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='contract_grp']" position="after">
+                    <group name="utilidades_grp">
+                        <label for="id" string="Nomina Utilidades"/>
+                        <div>
+                            <div name="hr_utilidades">
+                                <field name="module_hr_utilidades_add_calculo" class="oe_inline"/>
+                                <label for="module_hr_utilidades_add_calculo"/>
+                                <label for="module_hr_utilidades_add_date_start" string="Desde:" attrs="{'invisible': [('module_hr_utilidades_add_calculo','=',False)]}"/>
+                                <field name="module_hr_utilidades_add_date_start" class="oe_inline" required="1" attrs="{'invisible': [('module_hr_utilidades_add_calculo','=',False)]}"/>
+                                <label for="module_hr_utilidades_add_date_end" string="Hasta:" attrs="{'invisible': [('module_hr_utilidades_add_calculo','=',False)]}"/>
+                                <field name="module_hr_utilidades_add_date_end" class="oe_inline" required="1" attrs="{'invisible': [('module_hr_utilidades_add_calculo','=',False)]}"/>
+                            </div>
+                        </div>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

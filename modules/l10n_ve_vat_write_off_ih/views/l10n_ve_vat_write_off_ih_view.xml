@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/css" ?><openerp>
+        <data>
+            <record id="view_vat_write_off_form_tree" model="ir.ui.view">
+                <field name="name">vat.write.off.form.tree</field>
+                <field name="model">vat.write.off</field>
+                <field name="arch" type="xml">
+                    <tree string="SENIAT" colors="red:state in ('draft');gray:state in ('cancel');darkgreen:state in ('open')">
+                        <field name="period_id"/>
+                        <field name="start_date"/>
+                        <field name="state" invisible="1"/>
+                    </tree>
+                </field>
+            </record>
+
+        <record id="l10n_ve_vat_write_off.view_vat_write_off_action" model="ir.actions.act_window">
+            <field name="name">SENIAT-Forma 30</field>
+            <field name="res_model">vat.write.off</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="SENIAT-Forma 30" id="l10n_ve_vat_write_off.view_vat_write_off_menu" parent="l10n_ve_imex.menu_finance_forma" action="l10n_ve_vat_write_off.view_vat_write_off_action" sequence="10"/>
+
+    </data>
+</openerp>

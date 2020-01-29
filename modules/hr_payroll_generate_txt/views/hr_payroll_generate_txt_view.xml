@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_generate_txt_view_inherit" model="ir.ui.view">
+            <field name="name">hr.generate.txt.view.inherit</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/separator[@string='Payslips']" position="before">
+                    <separator string="Generar archivo txt" attrs="{'invisible':[('state', 'not in', ('done', 'close') )]}"/>
+                    <group col="4" attrs="{'invisible':[('state', 'not in', ('done', 'close') )]}">
+                        <group>
+                            <field name="bank_account_id" string= "Banco de Nómina" /> <!--domain="[('checkbox_nominas','=',True)]"/>-->
+                        </group>
+                        <group>
+                            <button name="generate_txt" type="object" string="Generar archivo"/>
+                            <field name="txt_filename" string=" " invisible="1"/>
+                            <field name="txt_binary" string=" " filename="txt_filename" readonly="1"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

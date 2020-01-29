@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--parametros del modulo-->
+        <record id="hr_config_parameter_fideicomiso_1" model="hr.config_parameter">
+            <field name="key">hr.dias.x.mes</field>
+            <field name="value">30</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_2" model="hr.config_parameter">
+            <field name="key">hr.fideicomiso.total.meses</field>
+            <field name="value">3</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_3" model="hr.config_parameter">
+            <field name="key">hr.fideicomiso.dias.x.mes</field>
+            <field name="value">5</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_4" model="hr.config_parameter">
+            <field name="key">hr.payslip.ultima.liquidacion.colectiva</field>
+            <field name="value">1997-06-19</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_5" model="hr.config_parameter">
+            <field name="key">hr.payroll.anticipo.prestaciones</field>
+            <field name="value">33</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_6" model="hr.config_parameter">
+            <field name="key">hr.payroll.anticipo.prestaciones.intereses</field>
+            <field name="value">33</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_7" model="hr.config_parameter">
+            <field name="key">hr.payroll.mes.inicio.trimestre</field>
+            <field name="value">1</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_8" model="hr.config_parameter">
+            <field name="key">hr.fi.antiguedad.ley</field>
+            <field name="value">2</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_9" model="hr.config_parameter">
+            <field name="key">hr.fi.factor.dias.adicionales</field>
+            <field name="value">2</field>
+        </record>
+        <record id="hr_config_parameter_fideicomiso_10" model="hr.config_parameter">
+            <field name="key">hr.payroll.codigos.nomina.prestaciones</field>
+            <field name="value">2</field>
+        </record>
+    </data>
+</openerp>

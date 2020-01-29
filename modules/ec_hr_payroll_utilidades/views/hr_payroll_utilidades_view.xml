@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--  utilidades -->
+         <record id="hr_payroll_utilidades_view" model="ir.ui.view">
+            <field name="name">hr.payroll.utilidades.view</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="before">
+                    <group col="4" string="Utilidades">
+                        <group col="2">
+                            <field name="salario_mensual_util" string="Salario Mensual" readonly="1"/>
+                            <field name="alic_bono_vac_util" string="Alícuota Bono Vacacional Diario" readonly="1"/>
+                            <field name="salario_integral_util" string="Salario Integral Diario" readonly="1"/>
+                            <field name="total_util" string="Total a Pagar" readonly="1"/>
+                        </group>
+                        <group col="2">
+                            <field name="util_days_to_pay_ps" string="Total de Días a Pagar" readonly="1"/>
+                            <field name="anticipos_util" string="Anticipos" readonly="1"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+
+
+        <!--payslip_run-->
+        <record id="hr_payslip_run_util_form" model="ir.ui.view">
+            <field name="name">hr.payslip.run.util.form</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id" ref="hr_special_struct.hr_payslip_run_form_struct"/>
+            <field name="arch" type="xml">
+                <!--<field name="credit_note" position="before"> </field>-->
+
+                <xpath expr="//field[@name='struct_id']" position="after">
+                    <field name="is_util" invisible="1"/>
+                    <field name="is_anticipo" string="Anticipo" attrs="{'invisible': [('check_special_struct', '!=', True)]}"/>
+                    <field name="util_days_to_pay"  attrs="{'invisible': [('is_anticipo', '!=', True)]}"/>
+                </xpath>
+                 <xpath expr="//field[@name='struct_id']" position="replace">
+                    <field name="struct_id" domain="[('struct_category','=','especial')]" onchange="onchange_struct_id(struct_id)"
+                               attrs="{'invisible': [('check_special_struct', '!=', True)],'required': [('check_special_struct', '==', True)]}" nolabel= "1"/>
+                </xpath>
+            </field>
+        </record>
+        <!--payslip-->
+        <record id="hr_payslip_inherit_form" model="ir.ui.view">
+            <field name="name">hr.payslip.inherit.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <!--<field name="credit_note" position="before"> </field>-->
+                <xpath expr="//button[@string='Compute Sheet']" position="attributes">
+                    <attribute name="context">{'come_from': 'payslip'}</attribute>
+                </xpath>
+            </field>
+        </record>
+         <!--payslip-->
+        <!--<record id="hr_payslip_inherit_form" model="ir.ui.view">-->
+            <!--<field name="name">hr.payslip.inherit.form</field>-->
+            <!--<field name="model">hr.payslip</field>-->
+            <!--<field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<xpath expr="//button[@string='Compute Sheet']" position="attributes">-->
+                    <!--<attribute name="context">{'come_from': 'payslip'}</attribute>-->
+                <!--</xpath>-->
+            <!--</field>-->
+        <!--</record>-->
+    </data>
+</openerp>

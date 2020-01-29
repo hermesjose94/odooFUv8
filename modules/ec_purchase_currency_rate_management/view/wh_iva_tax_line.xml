@@ -1,0 +1,19 @@
+<openerp>
+	<data>
+		
+		<record id="view_wh_iva_line_form_rate_inh" model="ir.ui.view">
+			<field name="name">account.wh.iva.line.form.rate.inh</field>
+            <field name="model">account.wh.iva.line</field>
+            <field name="inherit_id" ref="view_wh_iva_line_form"/>
+            <field name="arch" type="xml">
+            	<xpath ref="/form/notebook/page/group/field/tree/field[@name='base']" position="after">
+            		<field name="base_amount"/>
+            	</xpath>
+            	<xpath ref="/form/notebook/page/group/field/tree/field[@name='amount']" position="after">
+            		<field name="tax_amount"/>
+            	</xpath>
+            </field>
+		</record>
+		
+	</data>
+</openerp>

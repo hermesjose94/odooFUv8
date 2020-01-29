@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--  Intereses Fideicomiso -->
+        <!--  vista lista inicio-->
+        <record id="view_hr_payroll_fideicomiso_intereses_tree" model="ir.ui.view">
+            <field name="name">view.hr.payroll.fideicomiso.intereses.tree</field>
+            <field name="model">hr.payroll.fideicomiso.intereses</field>
+            <field name="arch" type="xml">
+                <tree string="Intereses Sobre Prestaciones Sociales" >
+                    <field name="anio" string="Año" />
+                    <field name="mes" string="Mes" />
+                    <field name="tasa" string="Tasa de Interés" />
+                    <field name="numero_gaceta" string="Número" />
+                    <field name="fecha_gaceta" string="Fecha" />
+                    <field name="activa_pasiva" string="Tasa Activa/Pasiva" />
+                </tree>
+            </field>
+        </record>
+        <!--  vista lista fin-->
+
+        <!--  vista formulario inicio-->
+        <record id="view_hr_payroll_fideicomiso_intereses_form" model="ir.ui.view">
+            <field name="name">view.hr.payroll.fideicomiso.intereses.form</field>
+            <field name="model">hr.payroll.fideicomiso.intereses</field>
+            <field name="arch" type="xml">
+                <form string="Intereses Sobre Prestaciones Sociales">
+                     <group name="main_group">
+                         <group name="grupo_interes" string="Tasa">
+                             <field name="anio" string="Año" />
+                             <field name="mes" string="Mes" />
+                             <field name="tasa" string="Tasa de Interés" />
+                             <field name="activa_pasiva" string="Tasa Activa/Pasiva" />
+                         </group>
+                         <group name="grupo_gaceta" string="Gaceta">
+                             <field name="numero_gaceta" string="Número" />
+                             <field name="fecha_gaceta" string="Fecha" />
+                         </group>
+                     </group>
+                </form >
+            </field>
+        </record>
+        <!--  vista formulario fin-->
+
+        <record id="action_hr_historico_fideicomiso_intereses" model="ir.actions.act_window">
+            <field name="name">Tasas de Interes Prestaciones Sociales</field>
+            <field name="res_model">hr.payroll.fideicomiso.intereses</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_hr_payroll_fideicomiso_intereses_tree"/>
+            <field name="help" type="html">
+
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Lista de tasas de interés para el calculo de prestaciones sociales publicadas por el BCV
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!--menu item-->
+        <menuitem
+                id="menu_hr_historico_fideicomiso_intereses"
+                name="Tasas de Interés Sobre Prestaciones Sociales"
+                action="action_hr_historico_fideicomiso_intereses"
+                parent="hr.menu_hr_configuration"
+                sequence="20"/>
+
+    </data>
+</openerp>

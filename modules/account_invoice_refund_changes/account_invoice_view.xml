@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="view_invoice_line_inh_form" model="ir.ui.view">
+            <field name="name">account.invoice.refund.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='price_unit']" position="replace">
+					<field name="price_unit" on_change="change_price_unit(price_unit)"/>
+				</xpath>
+            </field>
+        </record>
+	</data>
+</openerp>

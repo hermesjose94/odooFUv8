@@ -1,0 +1,2188 @@
+<openerp>
+  <data noupdate="1">
+    <!--
+	/addons/l10n_ve/data/account_chart.xml
+    Chart of account
+
+    <record model="account.account.template" id="">
+      <field name="code"></field>
+      <field name="reconcile" eval="True"/>
+      <field name="name"></field>
+      <field ref="" name="parent_id"/>
+      <field name="type"></field>
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    -->  
+
+    <record model="account.account.template" id="account_activa_account_0">
+      <field name="code">0</field>
+      <field name="reconcile" eval="False"/> <!--Permite Conciliar-->
+      <field name="name">FARMAUNO C.A.</field>
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+
+
+
+    <record model="account.account.template" id="account_activa_account_1">
+      <field name="code">1</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ACTIVO</field>
+      <field ref="account_activa_account_0" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+
+<!--CUENTAS HIJAS 1-->
+    <record model="account.account.template" id="account_activa_account_11">
+      <field name="code">1.01</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ACTIVO CORRIENTE</field>
+      <field ref="account_activa_account_1" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_111">
+      <field name="code">1.01.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">EFECTIVO Y EQUIVALENTES DE EFECTIVO</field>
+      <field ref="account_activa_account_11" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1111">
+      <field name="code">1.01.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAJA</field>
+      <field ref="account_activa_account_111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11111">
+      <field name="code">1.01.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAJA PRINCIPAL</field>
+      <field ref="account_activa_account_1111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11112">
+      <field name="code">1.01.001.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">FONDO DE CAJA CHICA</field>
+      <field ref="account_activa_account_1111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1112">
+      <field name="code">1.01.001.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCOS NACIONALES</field>
+      <field ref="account_activa_account_111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11121">
+      <field name="code">1.01.001.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCO SOFITASA</field>
+      <field ref="account_activa_account_1112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11122">
+      <field name="code">1.01.001.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCO BANESCO</field>
+      <field ref="account_activa_account_1112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11123">
+      <field name="code">1.01.001.0002.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCO BOD</field>
+      <field ref="account_activa_account_1112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11124">
+      <field name="code">1.01.001.0002.00004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCO MERCANTIL</field>
+      <field ref="account_activa_account_1112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11125">
+      <field name="code">1.01.001.0002.00005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCO DE VENEZUELA</field>
+      <field ref="account_activa_account_1112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11126">
+      <field name="code">1.01.001.0002.00006</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCARIBE</field>
+      <field ref="account_activa_account_1112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1113">
+      <field name="code">1.01.001.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BANCOS EN EL EXTERIOR</field>
+      <field ref="account_activa_account_111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>		
+    <record model="account.account.template" id="account_activa_account_1114">
+      <field name="code">1.01.001.0004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVERSIONES FINANCIERAS</field>
+      <field ref="account_activa_account_111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11141">
+      <field name="code">1.01.001.0004.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVERSION EN BONOS</field>
+      <field ref="account_activa_account_1114" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_112">
+      <field name="code">1.01.002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR CORRIENTES</field>
+      <field ref="account_activa_account_111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1121">
+      <field name="code">1.01.002.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR CLIENTES</field>
+      <field ref="account_activa_account_112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11211">
+      <field name="code">1.01.002.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR CLIENTES</field>
+      <field ref="account_activa_account_1121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">receivable</field> <!--view/other-->
+      <field ref="account_type_receivable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11212">
+      <field name="code">1.01.002.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PROVISION DE CUENTAS INCOBRABLES</field>
+      <field ref="account_activa_account_1121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11213">
+      <field name="code">1.01.002.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE CUENTAS COMERCIALES</field>
+      <field ref="account_activa_account_1121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1122">
+      <field name="code">1.01.002.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR INTERCOMPA&#209;IAS</field>
+      <field ref="account_activa_account_112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>			
+    <record model="account.account.template" id="account_activa_account_11221">
+      <field name="code">1.01.002.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR INTERCOMPA&#209;IAS</field>
+      <field ref="account_activa_account_1122" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">receivable</field> <!--view/other--> 
+      <field ref="account_type_receivable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11222">
+      <field name="code">1.01.002.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR ACCIONISTAS</field>
+      <field ref="account_activa_account_1122" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1123">
+      <field name="code">1.01.002.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR ACCIONISTAS</field>
+      <field ref="account_activa_account_112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11231">
+      <field name="code">1.01.002.0003.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR ACCIONISTAS</field>
+      <field ref="account_activa_account_1123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11232">
+      <field name="code">1.01.002.0003.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO VALOR CUENTAS POR COBRAR ACCIONISTAS</field>
+      <field ref="account_activa_account_1123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1124">
+      <field name="code">1.01.002.0004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR TRABAJADORES</field>
+      <field ref="account_activa_account_112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11241">
+      <field name="code">1.01.002.0004.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR COBRAR TRABAJADORES</field>
+      <field ref="account_activa_account_1124" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">receivable</field> <!--view/other-->
+      <field ref="account_type_receivable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11242">
+      <field name="code">1.01.002.0004.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR CUENTAS POR COBRAR TRABAJADORES</field>
+      <field ref="account_activa_account_1124" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1125">
+      <field name="code">1.01.002.0005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTRAS CUENTAS POR COBRAR</field>
+      <field ref="account_activa_account_112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11251">
+      <field name="code">1.01.002.0005.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DIVIDENDOS POR COBRAR</field>
+      <field ref="account_activa_account_1125" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11252">
+      <field name="code">1.01.002.0005.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ALQUILERES POR COBRAR</field>
+      <field ref="account_activa_account_1125" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_113">
+      <field name="code">1.01.003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ACTIVO POR IMPUESTO CORRIENTE</field>
+      <field ref="account_activa_account_11" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1131">
+      <field name="code">1.01.003.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTO SOBRE LA RENTA</field>
+      <field ref="account_activa_account_113" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11311">
+      <field name="code">1.01.003.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DECLARACIÓN ESTIMADA</field>
+      <field ref="account_activa_account_1131" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11312">
+      <field name="code">1.01.003.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCION I.S.L.R. CLIENTES</field>
+      <field ref="account_activa_account_1131" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11313">
+      <field name="code">1.01.003.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">TRIBUTOS POR COMPENSAR</field>
+      <field ref="account_activa_account_1131" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1132">
+      <field name="code">1.01.003.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTO AL VALOR AGREGADO</field>
+      <field ref="account_activa_account_113" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11321">
+      <field name="code">1.01.003.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">EXCEDENTE DE CREDITO FISCAL I.V.A.</field>
+      <field ref="account_activa_account_1132" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11322">
+      <field name="code">1.01.003.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCIÓN I.V.A. CLIENTES</field>
+      <field ref="account_activa_account_1132" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11323">
+      <field name="code">1.01.003.0002.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">I.V.A. CREDITO FISCAL</field>
+      <field ref="account_activa_account_1132" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1133">
+      <field name="code">1.01.003.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTOS MUNICIPALES</field>
+      <field ref="account_activa_account_113" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11331">
+      <field name="code">1.01.003.0003.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DECLARACION ESTIMADA</field>
+      <field ref="account_activa_account_1133" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11332">
+      <field name="code">1.01.003.0003.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">TRIBUTOS POR COMPENSAR</field>
+      <field ref="account_activa_account_1133" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_114">
+      <field name="code">1.01.004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIOS</field>
+      <field ref="account_activa_account_11" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1141">
+      <field name="code">1.01.004.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIOS DE MERCANCIA</field>
+      <field ref="account_activa_account_114" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>				
+    <record model="account.account.template" id="account_activa_account_11411">
+      <field name="code">1.01.004.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIO 1</field>
+      <field ref="account_activa_account_1141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11412">
+      <field name="code">1.01.004.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIO 2</field>
+      <field ref="account_activa_account_1141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>			
+    <record model="account.account.template" id="account_activa_account_11413">
+      <field name="code">1.01.004.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIO 3</field>
+      <field ref="account_activa_account_1141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11414">
+      <field name="code">1.01.004.0001.00004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIO 4</field>
+      <field ref="account_activa_account_1141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1145">
+      <field name="code">1.01.004.0005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE LOS INVENTARIOS</field>
+      <field ref="account_activa_account_114" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11451">
+      <field name="code">1.01.004.0005.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE LAS MERCANCIAS</field>
+      <field ref="account_activa_account_1145" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_115">
+      <field name="code">1.01.005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS PAGADOS POR ANTICIPADO</field>
+      <field ref="account_activa_account_11" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_1151">
+      <field name="code">1.01.005.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS PAGADOS POR ANTICIPADO</field>
+      <field ref="account_activa_account_115" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>		
+    <record model="account.account.template" id="account_activa_account_11511">
+      <field name="code">1.01.005.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">SEGUROS PAGADOS POR ANTICIPADO</field>
+      <field ref="account_activa_account_1151" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_11512">
+      <field name="code">1.01.005.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ALQUILERES PAGADOS POR ANTICIPADO</field>
+      <field ref="account_activa_account_1151" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_11513">
+      <field name="code">1.01.005.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PUBLICIDAD PAGADA POR ANTICIPADO</field>
+      <field ref="account_activa_account_1151" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_1152">
+      <field name="code">1.01.005.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ANTICIPOS</field>
+      <field ref="account_activa_account_115" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_11521">
+      <field name="code">1.01.005.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ANTICIPO A PROVEEDORES</field>
+      <field ref="account_activa_account_1152" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_11522">
+      <field name="code">1.01.005.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ANTICIPO A CONTRATISTAS</field>
+      <field ref="account_activa_account_1152" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_11523">
+      <field name="code">1.01.005.0002.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ANTICIPO PRESTACIONES SOCIALES</field>
+      <field ref="account_activa_account_1152" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12">
+      <field name="code">1.02</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ACTIVO NO CORRIENTE</field>
+      <field ref="account_activa_account_1" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_121">
+      <field name="code">1.02.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PROPIEDAD PLANTA Y EQUIPO</field>
+      <field ref="account_activa_account_12" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1211">
+      <field name="code">1.02.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INMUEBLES</field>
+      <field ref="account_activa_account_121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12111">
+      <field name="code">1.02.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">TERRENOS</field>
+      <field ref="account_activa_account_1211" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12112">
+      <field name="code">1.02.001.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">EDIFICIOS</field>
+      <field ref="account_activa_account_1211" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12113">
+      <field name="code">1.02.001.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INSTALACIONES</field>
+      <field ref="account_activa_account_1211" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1212">
+      <field name="code">1.02.001.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MAQUINARIA Y EQUIPO</field>
+      <field ref="account_activa_account_121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12121">
+      <field name="code">1.02.001.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MAQUINARIA Y EQUIPOS</field>
+      <field ref="account_activa_account_1212" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12122">
+      <field name="code">1.02.001.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">HERRAMIENTAS</field>
+      <field ref="account_activa_account_1212" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1213">
+      <field name="code">1.02.001.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MOBILIARIO Y EQUIPOS DE OFICINA</field>
+      <field ref="account_activa_account_121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12131">
+      <field name="code">1.02.001.0003.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MOBILIARIOS</field>
+      <field ref="account_activa_account_1213" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12132">
+      <field name="code">1.02.001.0003.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">EQUIPOS DE OFICINA</field>
+      <field ref="account_activa_account_1213" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12133">
+      <field name="code">1.02.001.0003.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MEJORAS A LOCAL</field>
+      <field ref="account_activa_account_1213" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1214">
+      <field name="code">1.02.001.0004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VEHICULOS</field>
+      <field ref="account_activa_account_121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12141">
+      <field name="code">1.02.001.0004.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VEHÍCULOS DE REPARTO</field>
+      <field ref="account_activa_account_1214" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>				
+    <record model="account.account.template" id="account_activa_account_1218">
+      <field name="code">1.02.001.0008</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACION ACUMULADA PROPIEDAD PLANTA Y EQUIPO</field>
+      <field ref="account_activa_account_121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>				
+    <record model="account.account.template" id="account_activa_account_12181">
+      <field name="code">1.02.001.0008.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA EDIFICIO</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>				
+    <record model="account.account.template" id="account_activa_account_12182">
+      <field name="code">1.02.001.0008.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA INSTALACIONES</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>				
+    <record model="account.account.template" id="account_activa_account_12183">
+      <field name="code">1.02.001.0008.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA MAQUINARIA Y EQUIPOS</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>				
+    <record model="account.account.template" id="account_activa_account_12184">
+      <field name="code">1.02.001.0008.00004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA HERRAMIENTAS</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12185">
+      <field name="code">1.02.001.0008.00005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA MOBILIARIO</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12186">
+      <field name="code">1.02.001.0008.00006</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA EQUIPOS DE OFICINA</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12187">
+      <field name="code">1.02.001.0008.00007</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA VEHÍCULOS DE REPARTO</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12188">
+      <field name="code">1.02.001.0008.00008</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA MEJORAS</field>
+      <field ref="account_activa_account_1218" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1219">
+      <field name="code">1.02.001.0009</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO VALOR PROPIEDAD PLANTA Y EQUIPO</field>
+      <field ref="account_activa_account_121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12191">
+      <field name="code">1.02.001.0009.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE EDIFICIO</field>
+      <field ref="account_activa_account_1219" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_12192">
+      <field name="code">1.02.001.0009.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE INSTALACIONES</field>
+      <field ref="account_activa_account_1219" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_12193">
+      <field name="code">1.02.001.0009.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE MAQUINARIA Y EQUIPOS</field>
+      <field ref="account_activa_account_1219" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12194">
+      <field name="code">1.02.001.0009.00004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE HERRAMIENTAS</field>
+      <field ref="account_activa_account_1219" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12195">
+      <field name="code">1.02.001.0009.00005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE MOBILIARIO</field>
+      <field ref="account_activa_account_1219" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12196">
+      <field name="code">1.02.001.0009.00006</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE EQUIPOS DE OFICINA</field>
+      <field ref="account_activa_account_1219" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12197">
+      <field name="code">1.02.001.0009.00007</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE VEHÍCULOS DE REPARTO</field>
+      <field ref="account_activa_account_1219" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_122">
+      <field name="code">1.02.002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PROPIEDADES DE INVERSIÓN</field>
+      <field ref="account_activa_account_12" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>		
+    <record model="account.account.template" id="account_activa_account_1221">
+      <field name="code">1.02.002.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">TERRENOS</field>
+      <field ref="account_activa_account_122" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1222">
+      <field name="code">1.02.002.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">EDIFICIOS</field>
+      <field ref="account_activa_account_122" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12221">
+      <field name="code">1.02.002.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">EDIFICIOS</field>
+      <field ref="account_activa_account_1222" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12222">
+      <field name="code">1.02.002.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPRECIACIÓN ACUMULADA EDIFICIOS</field>
+      <field ref="account_activa_account_1222" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12223">
+      <field name="code">1.02.002.0002.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE EDIFICIOS</field>
+      <field ref="account_activa_account_1222" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_123">
+      <field name="code">1.02.003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ACTIVOS INTANGIBLES</field>
+      <field ref="account_activa_account_12" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1231">
+      <field name="code">1.02.003.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ACTIVOS INTANGIBLES</field>
+      <field ref="account_activa_account_123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_12311">
+      <field name="code">1.02.003.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DERECHOS DE MARCA</field>
+      <field ref="account_activa_account_1231" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12312">
+      <field name="code">1.02.003.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">APLICACIONES INFORMÁTICAS</field>
+      <field ref="account_activa_account_1231" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1232">
+      <field name="code">1.02.003.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">AMORTIZACIÓN ACUMULADA ACTIVOS INTANGIBLES</field>
+      <field ref="account_activa_account_123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12321">
+      <field name="code">1.02.003.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">AMORTIZACIÓN ACUMULADA DERECHOS DE MARCA</field>
+      <field ref="account_activa_account_1232" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12322">
+      <field name="code">1.02.003.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">AMORTIZACIÓN ACUMULADA APLICACIONES INFORMÁTICAS</field>
+      <field ref="account_activa_account_1232" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1233">
+      <field name="code">1.02.003.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DE LOS ACTIVOS INTANGIBLES</field>
+      <field ref="account_activa_account_123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12331">
+      <field name="code">1.02.003.0003.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE DERECHOS DE MARCA</field>
+      <field ref="account_activa_account_1233" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12332">
+      <field name="code">1.02.003.0003.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DETERIORO DEL VALOR DE APLICACIONES INFORMÁTICAS</field>
+      <field ref="account_activa_account_1233" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_124">
+      <field name="code">1.02.004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTROS ACTIVOS NO FINANCIEROS NO CORRIENTES</field>
+      <field ref="account_activa_account_12" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1241">
+      <field name="code">1.02.004.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ACTIVOS POR IMPUESTO DIFERIDO</field>
+      <field ref="account_activa_account_124" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12411">
+      <field name="code">1.02.004.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTO SOBRE LA RENTA PATRIMONIO</field>
+      <field ref="account_activa_account_1241" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12412">
+      <field name="code">1.02.004.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTO SOBRE LA RENTA RESULTADOS</field>
+      <field ref="account_activa_account_1241" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1242">
+      <field name="code">1.02.004.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPÓSITOS RECIBIDOS EN GARANTÍA</field>
+      <field ref="account_activa_account_124" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12421">
+      <field name="code">1.02.004.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEPOSITO LOCAL</field>
+      <field ref="account_activa_account_1242" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_1243">
+      <field name="code">1.02.004.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COSTOS Y GASTOS DIFERIDOS</field>
+      <field ref="account_activa_account_124" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12431">
+      <field name="code">1.02.004.0003.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COSTOS DIFERIDOS</field>
+      <field ref="account_activa_account_1243" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_12432">
+      <field name="code">1.02.004.0003.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DIFERIDOS</field>
+      <field ref="account_activa_account_1243" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+<!--FIN CUENTAS HIJAS 1-->
+
+
+
+    <record model="account.account.template" id="account_activa_account_2">
+      <field name="code">2</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PASIVO</field>
+      <field ref="account_activa_account_0" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+
+<!--CUENTAS HIJAS 2-->
+    <record model="account.account.template" id="account_activa_account_21">
+      <field name="code">2.01</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PASIVO CORRIENTE</field>
+      <field ref="account_activa_account_2" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_211">
+      <field name="code">2.01.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OBLIGACIONES BANCARIAS</field>
+      <field ref="account_activa_account_21" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_2111">
+      <field name="code">2.01.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OBLIGACIONES BANCARIAS</field>
+      <field ref="account_activa_account_211" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_21111">
+      <field name="code">2.01.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">SOBREGIRO BANCARIO</field>
+      <field ref="account_activa_account_2111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_21112">
+      <field name="code">2.01.001.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PRESTAMOS BANCARIOS</field>
+      <field ref="account_activa_account_2111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21113">
+      <field name="code">2.01.001.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCIONES SSO</field>
+      <field ref="account_activa_account_2111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_212">
+      <field name="code">2.01.002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR</field>
+      <field ref="account_activa_account_21" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2121">
+      <field name="code">2.01.002.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR</field>
+      <field ref="account_activa_account_212" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21211">
+      <field name="code">2.01.002.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR COMERCIALES</field>
+      <field ref="account_activa_account_2121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2122">
+      <field name="code">2.01.002.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR INTERCOMPA&#209;IAS</field>
+      <field ref="account_activa_account_212" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21221">
+      <field name="code">2.01.002.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR INTERCOMPA&#209;IAS</field>
+      <field ref="account_activa_account_2122" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21222">
+      <field name="code">2.01.002.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR IVSS-FAOV</field>
+      <field ref="account_activa_account_2122" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21223">
+      <field name="code">2.01.002.0002.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR FINANCIADORA DE PRIMA</field>
+      <field ref="account_activa_account_2122" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2123">
+      <field name="code">2.01.002.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTRAS CUENTAS POR PAGAR</field>
+      <field ref="account_activa_account_212" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21231">
+      <field name="code">2.01.002.0003.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ALQUILERES POR PAGAR</field>
+      <field ref="account_activa_account_2123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21232">
+      <field name="code">2.01.002.0003.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DIVIDENDOS POR PAGAR</field>
+      <field ref="account_activa_account_2123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_21233">
+      <field name="code">2.01.002.0003.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ANTICIPO DE CLIENTES</field>
+      <field ref="account_activa_account_2123" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">payable</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_213">
+      <field name="code">2.01.003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PASIVO POR IMPUESTO CORRIENTES</field>
+      <field ref="account_activa_account_21" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2131">
+      <field name="code">2.01.003.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTO AL VALOR AGREGADO</field>
+      <field ref="account_activa_account_213" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21311">
+      <field name="code">2.01.003.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">I.V.A DEBITO FISCAL</field>
+      <field ref="account_activa_account_2131" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21312">
+      <field name="code">2.01.003.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUOTA TRIBUTARIA POR PAGAR</field>
+      <field ref="account_activa_account_2131" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2132">
+      <field name="code">2.01.003.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTO SOBRE LA RENTA POR PAGAR</field>
+      <field ref="account_activa_account_213" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21321">
+      <field name="code">2.01.003.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DECLARACION DEFINITIVA</field>
+      <field ref="account_activa_account_2132" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2134">
+      <field name="code">2.01.003.0004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTOS MUNICIPALES</field>
+      <field ref="account_activa_account_213" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21341">
+      <field name="code">2.01.003.0004.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IMPUESTO SOBRE ACTIVIDADES ECONOMICAS</field>
+      <field ref="account_activa_account_2134" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_21342">
+      <field name="code">2.01.003.0004.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DERECHOS DE PUBLICIDAD</field>
+      <field ref="account_activa_account_2134" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21343">
+      <field name="code">2.01.003.0004.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CATASTRO</field>
+      <field ref="account_activa_account_2134" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_214">
+      <field name="code">2.01.004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCIONES POR PAGAR</field>
+      <field ref="account_activa_account_21" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2141">
+      <field name="code">2.01.004.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCIONES POR PAGAR</field>
+      <field ref="account_activa_account_214" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21411">
+      <field name="code">2.01.004.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCION I.S.L.R</field>
+      <field ref="account_activa_account_2141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21412">
+      <field name="code">2.01.004.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCIONES I.V.A.</field>
+      <field ref="account_activa_account_2141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_21413">
+      <field name="code">2.01.004.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RETENCIONES FAOV</field>
+      <field ref="account_activa_account_2141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21416">
+      <field name="code">2.01.004.0001.00006</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INCES</field>
+      <field ref="account_activa_account_2141" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_215">
+      <field name="code">2.01.005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTRAS CUENTAS POR PAGAR</field>
+      <field ref="account_activa_account_21" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2151">
+      <field name="code">2.01.005.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BENEFICIOS A EMPLEADOS</field>
+      <field ref="account_activa_account_215" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21511">
+      <field name="code">2.01.005.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PRESTACIONES SOCIALES POR PAGAR</field>
+      <field ref="account_activa_account_2151" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21512">
+      <field name="code">2.01.005.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VACACIONES POR PAGAR</field>
+      <field ref="account_activa_account_2151" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21513">
+      <field name="code">2.01.005.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">NOMINA POR PAGAR</field>
+      <field ref="account_activa_account_2151" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_2152">
+      <field name="code">2.01.005.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTRAS CUENTAS POR PAGAR</field>
+      <field ref="account_activa_account_215" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21521">
+      <field name="code">2.01.005.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS ACUMULADOS POR PAGAR</field>
+      <field ref="account_activa_account_2152" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_21522">
+      <field name="code">2.01.005.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CUENTAS POR PAGAR INTERCOMPA&#209;IAS</field>
+      <field ref="account_activa_account_2152" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_payable" name="user_type"/>
+    </record>
+<!--FIN CUENTAS HIJAS 2-->
+
+
+
+    <record model="account.account.template" id="account_activa_account_3">
+      <field name="code">3</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAPITAL</field>
+      <field ref="account_activa_account_0" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+<!--CUENTAS HIJAS 3-->
+				
+    <record model="account.account.template" id="account_activa_account_31">
+      <field name="code">3.01</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAPITAL SOCIAL</field>
+      <field ref="account_activa_account_3" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_311">
+      <field name="code">3.01.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAPITAL SOCIAL PAGADO</field>
+      <field ref="account_activa_account_31" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_3111">
+      <field name="code">3.01.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAPITAL SOCIAL PAGADO</field>
+      <field ref="account_activa_account_311" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_31111">
+      <field name="code">3.01.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAPITAL SOCIAL</field>
+      <field ref="account_activa_account_3111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_32">
+      <field name="code">3.02</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESERVAS</field>
+      <field ref="account_activa_account_3" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_321">
+      <field name="code">3.02.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESERVAS LEGALES</field>
+      <field ref="account_activa_account_32" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_3211">
+      <field name="code">3.02.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESERVAS LEGALES</field>
+      <field ref="account_activa_account_321" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_32111">
+      <field name="code">3.02.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESERVAS LEGALES</field>
+      <field ref="account_activa_account_3211" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_33">
+      <field name="code">3.03</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESULTADO DEL EJERCICIO</field>
+      <field ref="account_activa_account_3" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_331">
+      <field name="code">3.03.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESULTADO DEL EJERCICIO</field>
+      <field ref="account_activa_account_33" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_3311">
+      <field name="code">3.03.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESULTADO DEL EJERCICIO</field>
+      <field ref="account_activa_account_331" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_33111">
+      <field name="code">3.03.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESULTADO DE EJERCICIOS ANTERIORES</field>
+      <field ref="account_activa_account_3311" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_33112">
+      <field name="code">3.03.001.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">RESULTADO DEL EJERCICIO</field>
+      <field ref="account_activa_account_3311" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+<!--FIN CUENTAS HIJAS 3-->
+
+
+
+
+    <record model="account.account.template" id="account_activa_account_4">
+      <field name="code">4</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INGRESOS</field>
+      <field ref="account_activa_account_0" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field>
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+
+<!--CUENTAS HIJAS 4-->
+				
+    <record model="account.account.template" id="account_activa_account_41">
+      <field name="code">4.01</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INGRESOS OPERACIONALES</field>
+      <field ref="account_activa_account_4" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_411">
+      <field name="code">4.01.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VENTAS NETAS</field>
+      <field ref="account_activa_account_41" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_4111">
+      <field name="code">4.01.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VENTAS BRUTAS</field>
+      <field ref="account_activa_account_411" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_41111">
+      <field name="code">4.01.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VENTAS EXENTAS</field>
+      <field ref="account_activa_account_4111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_41112">
+      <field name="code">4.01.001.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VENTAS GRAVADAS</field>
+      <field ref="account_activa_account_4111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_4112">
+      <field name="code">4.01.001.0002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DESCUENTOS Y DEVOLUCIONES EN VENTAS</field>
+      <field ref="account_activa_account_411" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_41121">
+      <field name="code">4.01.001.0002.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DESCUENTOS EN VENTAS</field>
+      <field ref="account_activa_account_4112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_41122">
+      <field name="code">4.01.001.0002.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DEVOLUCIONES EN VENTAS</field>
+      <field ref="account_activa_account_4112" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_42">
+      <field name="code">4.02</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTROS INGRESOS</field>
+      <field ref="account_activa_account_4" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_421">
+      <field name="code">4.02.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTROS INGRESOS</field>
+      <field ref="account_activa_account_42" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_4211">
+      <field name="code">4.02.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">OTROS INGRESOS</field>
+      <field ref="account_activa_account_421" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_423">
+      <field name="code">4.02.003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INGRESOS FINANCIEROS</field>
+      <field ref="account_activa_account_4" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_4231">
+      <field name="code">4.02.003.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INGRESOS FINANCIEROS</field>
+      <field ref="account_activa_account_423" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_42311">
+      <field name="code">4.02.003.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INTERESES GANADOS</field>
+      <field ref="account_activa_account_4231" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+<!--FIN CUENTAS HIJAS 4-->
+
+
+
+    <record model="account.account.template" id="account_activa_account_5">
+      <field name="code">5</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COSTOS</field>
+      <field ref="account_activa_account_0" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+
+<!--CUENTAS HIJAS 5-->
+    <record model="account.account.template" id="account_activa_account_51">
+      <field name="code">5.01</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COSTOS DE VENTAS</field>
+      <field ref="account_activa_account_5" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_511">
+      <field name="code">5.01.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COMPRAS NETAS</field>
+      <field ref="account_activa_account_51" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_5111">
+      <field name="code">5.01.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COMPRAS BRUTAS</field>
+      <field ref="account_activa_account_511" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_51111">
+      <field name="code">5.01.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COMPRAS EXENTAS</field>
+      <field ref="account_activa_account_5111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_51112">
+      <field name="code">5.01.001.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">COMPRAS GRAVADAS</field>
+      <field ref="account_activa_account_5111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_5113">
+      <field name="code">5.01.001.0003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DESCUENTOS Y DEVOLUCIONES EN COMPRAS</field>
+      <field ref="account_activa_account_511" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_51131">
+      <field name="code">5.01.001.0003.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DESCUENTOS POR PRONTO PAGO</field>
+      <field ref="account_activa_account_5113" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_512">
+      <field name="code">5.01.002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VARIACION DE INVENTARIOS</field>
+      <field ref="account_activa_account_51" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_5121">
+      <field name="code">5.01.002.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VARIACION DE INVENTARIOS</field>
+      <field ref="account_activa_account_512" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_51211">
+      <field name="code">5.01.002.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIO INICIAL</field>
+      <field ref="account_activa_account_5121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_51212">
+      <field name="code">5.01.002.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">INVENTARIO FINAL</field>
+      <field ref="account_activa_account_5121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+<!--FIN CUENTAS HIJAS 5-->
+
+
+
+    <record model="account.account.template" id="account_activa_account_6">
+      <field name="code">6</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS</field>
+      <field ref="account_activa_account_0" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+
+<!--CUENTAS HIJAS 6-->
+    <record model="account.account.template" id="account_activa_account_61">
+      <field name="code">6.01</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS OPERACIONALES</field>
+      <field ref="account_activa_account_6" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611">
+      <field name="code">6.01.001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DE VENTAS</field>
+      <field ref="account_activa_account_61" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_6111">
+      <field name="code">6.01.001.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">REMUNERACION PERSONAL DE VENTAS</field>
+      <field ref="account_activa_account_611" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61111">
+      <field name="code">6.01.001.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">SUELDOS Y SALARIOS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61112">
+      <field name="code">6.01.001.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">HORAS EXTRAS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61113">
+      <field name="code">6.01.001.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DIAS FERIADOS Y/O DESCANSO</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_61114">
+      <field name="code">6.01.001.0001.00004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BONO NOCTURNO</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_61115">
+      <field name="code">6.01.001.0001.00005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VACACIONES</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_61116">
+      <field name="code">6.01.001.0001.00006</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">UTILIDADES</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_61117">
+      <field name="code">6.01.001.0001.00007</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BONO DE ALIMENTACION</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61118">
+      <field name="code">6.01.001.0001.00008</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BONIFICACIONES</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61119">
+      <field name="code">6.01.001.0001.00009</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">APORTE I.V.S.S.</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611110">
+      <field name="code">6.01.001.0001.00010</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">APORTE F.A.O.V.</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611111">
+      <field name="code">6.01.001.0001.00011</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">APORTE INCES</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611112">
+      <field name="code">6.01.001.0001.00012</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DOTACIONES AL PERSONAL</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611113">
+      <field name="code">6.01.001.0001.00013</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">EXAMENES MEDICOS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611114">
+      <field name="code">6.01.001.0001.00014</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PUBLICIDAD Y PROPAGANDA</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611115">
+      <field name="code">6.01.001.0001.00015</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">FIESTAS Y AGASAJOS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611116">
+      <field name="code">6.01.001.0001.00016</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">FLETES Y ENCOMIENDAS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611117">
+      <field name="code">6.01.001.0001.00017</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MANTENIMIENTO DE EQUIPOS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611118">
+      <field name="code">6.01.001.0001.00018</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MANTENIMIENTO LOCAL</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611119">
+      <field name="code">6.01.001.0001.00019</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ALQUILER LOCAL</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611120">
+      <field name="code">6.01.001.0001.00020</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">AGUA MINERAL</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611121">
+      <field name="code">6.01.001.0001.00021</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">MANTENIMIENTO DE EXTINTORES</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611122">
+      <field name="code">6.01.001.0001.00022</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">HONORARIOS PROFESIONALES</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611123">
+      <field name="code">6.01.001.0001.00023</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GUARDERIA</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611124">
+      <field name="code">6.01.001.0001.00024</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">UTILES DE LIMPIEZA</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611125">
+      <field name="code">6.01.001.0001.00025</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DE TRANSPORTE</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611126">
+      <field name="code">6.01.001.0001.00026</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DE SEGURIDAD</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_611127">
+      <field name="code">6.01.001.0001.00027</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BLINDADOS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611128">
+      <field name="code">6.01.001.0001.00028</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CONSUMOS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611129">
+      <field name="code">6.01.001.0001.00029</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BOLSAS PLASTICAS</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_611130">
+      <field name="code">6.01.001.0001.00030</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">ALCALDIA</field>
+      <field ref="account_activa_account_6111" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612">
+      <field name="code">6.01.002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DE ADMINISTRACION</field>
+      <field ref="account_activa_account_61" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_6121">
+      <field name="code">6.01.002.0001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS PERSONALES ADMINISTRATIVOS</field>
+      <field ref="account_activa_account_612" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">view</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61211">
+      <field name="code">6.01.002.0001.00001</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">SUELDOS Y ACCIONISTAS</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61212">
+      <field name="code">6.01.002.0001.00002</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">SUELDOS Y SALARIOS</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61213">
+      <field name="code">6.01.002.0001.00003</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">HORAS EXTRAS</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61214">
+      <field name="code">6.01.002.0001.00004</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">DOMINGOS Y FERIADOS</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61215">
+      <field name="code">6.01.002.0001.00005</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BONO DE ALIMENTACION</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61216">
+      <field name="code">6.01.002.0001.00006</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">VACACIONES</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61217">
+      <field name="code">6.01.002.0001.00007</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PRESTACIONES SOCIALES</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_61218">
+      <field name="code">6.01.002.0001.00008</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">UTILIDADES</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_61219">
+      <field name="code">6.01.002.0001.00009</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CAPACITACION AL PERSONAL</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_view" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612110">
+      <field name="code">6.01.002.0001.00010</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">APORTE I.V.S.S.</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_612111">
+      <field name="code">6.01.002.0001.00011</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GUARDERIA</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>	
+    <record model="account.account.template" id="account_activa_account_612112">
+      <field name="code">6.01.002.0001.00012</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DE SEGURO</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612114">
+      <field name="code">6.01.002.0001.00014</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">APORTE F.A.O.V.</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612115">
+      <field name="code">6.01.002.0001.00015</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">UTILES DE LIMPIEZA</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612116">
+      <field name="code">6.01.002.0001.00016</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">PAPELERIA Y UTILES DE OFICINA</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612117">
+      <field name="code">6.01.002.0001.00017</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">TELEONO Y TELECOMUNICACIONES</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612118">
+      <field name="code">6.01.002.0001.00018</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CORPOELECT</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612119">
+      <field name="code">6.01.002.0001.00019</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">HIDROSUROESTE</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612120">
+      <field name="code">6.01.002.0001.00020</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">SUSCRIPCIONES EN PERIODICOS Y REVISTAS</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612121">
+      <field name="code">6.01.002.0001.00021</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">CREDITO NO DEDUCIBLE</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612122">
+      <field name="code">6.01.002.0001.00022</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DE REPRESENTACION</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612123">
+      <field name="code">6.01.002.0001.00023</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">BONIFICACIONES</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612124">
+      <field name="code">6.01.002.0001.00024</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">HONORARIOS PROFESIONALES</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612125">
+      <field name="code">6.01.002.0001.00025</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS POR INTERESES</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612126">
+      <field name="code">6.01.002.0001.00026</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">GASTOS DE DEPRECIACION</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    </record>
+    <record model="account.account.template" id="account_activa_account_612127">
+      <field name="code">6.01.002.0001.00027</field>
+      <field name="reconcile" eval="True"/> <!--Permite Conciliar-->
+      <field name="name">IGTF</field>
+      <field ref="account_activa_account_6121" name="parent_id"/> <!--Cuenta Padre-->
+      <field name="type">other</field> <!--view/other-->
+      <field ref="account_type_asset" name="user_type"/>
+    
+    </record>
+<!--FIN CUENTAS HIJAS 6-->
+
+    <record id="ve_chart_template_amd" model="account.chart.template">
+      <field name="name">CUENTAS FARMAUNO</field>
+      <field name="account_root_id" ref="account_activa_account_0"/> <!--CUENTA PADRE PRINCIPAL-->
+      <field name="tax_code_root_id" ref="vat_code_tax"/>
+      <field name="bank_account_view_id" ref="account_activa_account_111"/> <!--EFECTIVO Y EQUIVALENTES DE EFECTIVO-->
+      <field name="property_account_receivable" ref="account_activa_account_1112"/> <!--Banco-->
+      <field name="property_account_expense_categ" ref="account_activa_account_12132"/> <!--EQUIPOS DE OFICINA-->
+      <field name="property_account_payable" ref="account_activa_account_21211"/> <!--CUENTAS POR PAGAR PROVEEDORES-->
+      <!--<field name="property_account_income_categ" ref="account_activa_account_5111001"/> VENTAS NACIONALES AL MAYOR-->
+      <field name="currency_id" ref="base.VEF"/> 
+    </record>
+  </data>
+</openerp>

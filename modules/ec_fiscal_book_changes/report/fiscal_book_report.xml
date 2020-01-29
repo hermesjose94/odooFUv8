@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+
+		<!--_22SEP2016_rsosa -->
+		<!-- Se modifica el identificador del reporte original para que llame a los nuevos archivos .rml -->
+
+        <report id="report_fiscal_book_sale_seniat" 
+        	string="Sale Book Report" 
+        	model="fiscal.book" 
+        	name="fiscal.book.sale.seniat" 
+        	rml="tys_fiscal_book_changes/report/fiscal_book_sale_report_seniat.rml" 
+        	auto="True" menu="False" header="False"/>
+
+        <report id="report_fiscal_book_purchase_seniat" 
+        	string="Purchase Book Report" 
+        	model="fiscal.book" 
+        	name="fiscal.book.purchase.seniat" 
+        	rml="tys_fiscal_book_changes/report/fiscal_book_purchase_report_seniat.rml" 
+        	auto="True" menu="False" header="False"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,58 @@
+<openerp>
+	<data>
+		
+		<!--
+			Cambios, rsosa:
+			- Se modifica la vista para que al activar el nuevo campo booleano 'reconcile'
+			  se muestre el campo 'debit_date' y se active la nueva funcionalidad de
+			  conciliacion de cheques. 
+		-->
+		
+		<record model="ir.ui.view" id="view_account_issued_check_form">
+            <field name="name">account.issued.check.inherit.form</field>
+            <field name="model">account.issued.check</field>
+            <field name="inherit_id" ref="l10n_ve_account_check_duo.view_account_issued_check_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//group[@string='Issued Checks']" position="after">
+            		<group string="Conciliacion de Cheques" attrs="{'invisible':[('state','not in',['handed','payed'])]}">
+            			<field name="reconcile" attrs="{'readonly': [('state','=','payed')]}"/>
+            			<field name="debit_date" attrs="{'invisible':[('reconcile','=',False)], 'readonly': [('state','=','payed')], 'required':[('reconcile','=',True)]}"/>
+            		</group>
+            		<group attrs="{'invisible':[('state','=','payed')]}">
+            			<button name="action_conciliar" type="object" string="Conciliar" class="oe_highlight" 
+            					attrs="{'invisible':[('reconcile','=',False)]}"/>
+            		</group>
+            		<group>
+            			<notebook>
+	            			<page string="Asiento Contable" attrs="{'invisible': [('state','!=','payed')]}">
+    	            			<!-- <group col="4">
+        	    		        	<field name="period_id"/>
+            			            <field name="audit"/>
+        		        	        <field name="number"/>
+    		                	</group> -->
+		                    		<field name="asiento_conciliado" readonly="1">
+                    				<tree string="Asiento Contable">
+                    	    			<field name="move_id"/>
+                	    	        	<field name="ref"/>
+            	    	            	<field name="date"/>
+        	    	                	<!-- <field name="statement_id"/> -->
+    	    	                    	<field name="partner_id"/>
+	    	                        	<field name="account_id"/>
+	                            		<field name="name"/>
+                            			<field name="debit"/>
+                            			<field name="credit"/>
+                        		    	<field name="state"/>
+                    		        	<!-- <field name="reconcile_id"/> -->
+                		            	<field name="amount_currency" groups="base.group_multi_currency"/>
+            		                	<field name="currency_id" groups="base.group_multi_currency"/>
+	    		                    </tree>
+								</field>
+		        	        </page>
+	        	        </notebook>
+        	        </group>
+        	    </xpath>
+        	</field>
+        </record>
+		
+	</data>
+</openerp>

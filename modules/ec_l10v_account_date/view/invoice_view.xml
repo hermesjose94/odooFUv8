@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+         <record id="inh_invoice_view_form" model="ir.ui.view">
+            <field name="name">inhh.invoce.view.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="l10n_ve_fiscal_requirements.account_invoice_ext_view_form_loc_ve"/>
+            <field name="arch" type="xml">
+
+                <!--Se agrega Fecha Entrega de Transporte en el formulario-->
+                 <xpath expr="//field[@name='date_invoice']" position="attributes">
+                     <attribute name="readonly">1</attribute>
+                 </xpath>
+                <xpath expr="//field[@name='date_document']" position="attributes">
+                     <attribute name="readonly">1</attribute>
+                 </xpath>
+                <!--Remplaza el campo original de nro de control-->
+                <xpath expr="//field[@name='nro_ctrl']" position="replace">
+                 </xpath>
+                <xpath expr="//field[@name='rif']" position="after">
+                     <field name="nro_ctrl" required="1"/>
+                 </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

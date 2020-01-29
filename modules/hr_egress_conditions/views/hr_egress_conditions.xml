@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--  Registro de Motivos -->
+        <!--  vista lista -->
+        <record id="view_hr_egress_conditions_motivo_list_view" model="ir.ui.view">
+            <field name="name">hr.egress.conditions.motivo.tree</field>
+            <field name="model">hr.egress.conditions.motivo</field>
+            <field name="arch" type="xml">
+                <tree string="Registro de Motivos">
+                    <field name="name"/>
+                    <field name="Descripcion"/>
+                </tree>
+            </field>
+        </record>
+        <!--vista Formulario-->
+            <record id="view_hr_egress_conditions_motivo_form" model="ir.ui.view">
+            <field name="name">hr.egress.conditions.motivo.form</field>
+            <field name="model">hr.egress.conditions.motivo</field>
+            <field name="arch" type="xml">
+                <form string="Registro de Motivos">
+                    <sheet>
+                        <h1>Motivos de Egreso</h1>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="Descripcion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--  Accion -->
+        <record id="action_view_hr_egress_conditions_motivo_list_form" model="ir.actions.act_window">
+            <field name="name">Motivos de Egreso</field>
+            <field name="res_model">hr.egress.conditions.motivo</field>
+            <field name="view_type">form</field>
+            <!--<field name="view_id" ref="view_hr_egress_conditions_motivo_list_view"/>-->
+        </record>
+
+        <menuitem
+            id="menu_hr_egress_conditions_motivo_view"
+            action="action_view_hr_egress_conditions_motivo_list_form"
+            parent="hr.menu_hr_configuration"/>
+            <!--sequence="10"/>-->
+        <!--  Fin Registro de Motivos -->
+
+    </data>
+</openerp>

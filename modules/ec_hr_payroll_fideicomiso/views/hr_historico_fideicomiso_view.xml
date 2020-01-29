@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--  Historico Fideicomiso -->
+        <!--  vista lista inicio-->
+        <record id="view_hr_historico_fideicomiso_tree" model="ir.ui.view">
+            <field name="name">view.hr.historico.fideicomiso.tree</field>
+            <field name="model">hr.historico.fideicomiso</field>
+            <field name="arch" type="xml">
+                <tree string="Prestaciones Sociales" delete="0">
+                    <field name="employee_id" string="Empleado" readonly="1"/>
+                    <field name="cedula_identidad" string="Cédula de Identidad" readonly="1"/>
+                    <field name="fecha_inicio" string="Fecha Inicio" readonly="1"/>
+                    <field name="fecha_fin" string="Fecha Fin" readonly="1"/>
+                    <field name="fecha_aporte" string="Fecha del Aporte" readonly="1"/>
+                    <field name="monto_incremento" string="Monto del Aporte" readonly="1"/>
+                    <field name="dias_aporte" string="Días de Aporte" readonly="1"/>
+                    <field name="salario_diario" string="Salario Integral Diario" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+        <!--  vista lista fin-->
+
+        <!--  vista formulario inicio-->
+        <record id="view_hr_historico_fideicomiso_form" model="ir.ui.view">
+            <field name="name">view.hr.historico.fideicomiso.form</field>
+            <field name="model">hr.historico.fideicomiso</field>
+            <field name="arch" type="xml">
+                <form string="Historico Prestaciones Sociales" delete="0">
+                     <group name="main_group" cols="4">
+                            <group name="grupo_1" cols="2">
+                                <separator string="Trabajador" colspan="2"/>
+                                <field name="employee_id" string="Empleado" readonly="1"/>
+                                <field name="cedula_identidad" string="Cédula de Identidad" readonly="1"/>
+                                <field name="salario_diario" string="Salario Integral Diario" readonly="1"/>
+                                <separator string="Período" colspan="2"/>
+                                <field name="fecha_inicio" string="Fecha Inicio" readonly="1"/>
+                                <field name="fecha_fin" string="Fecha Fin" readonly="1"/>
+                                <separator string="Aportes" colspan="2"/>
+                                <field name="monto_incremento" string="Monto del Aporte" readonly="1"/>
+                                <field name="fecha_aporte" string="Fecha del Aporte" readonly="1"/>
+                                <field name="dias_aporte" string="Días de Aporte" readonly="1"/>
+                                <field name="monto_acumulado" string="Monto Acumulado" readonly="1"/>
+                                <field name="dias_acumuluados" string="Días Acumulados" readonly="1"/>
+                                <field name="dias_adicionales" string="Días Adicionales" readonly="1"/>
+                                <field name="aporte_dias_adic" string="Aporte Días Adicionales" readonly="1"/>
+                            </group>
+                            <group name="grupo_2" >
+                                <separator string="Anticipos" colspan="2"/>
+                                <field name="total_anticipos" string="Total Anticipos" readonly="1"/>
+                                <field name="anticipo" string="Último de Anticipo" readonly="1"/>
+                                <field name="fecha_anticipo" string="Fecha del Anticipo" readonly="1"/>
+                                <separator string="Intereses" colspan="2"/>
+                                <field name="monto_intereses" string="Intereses de Trimestre" readonly="1"/>
+                                <field name="monto_total_intereses" string="Total Intereses" readonly="1"/>
+                                <field name="anticipo_intereses" string="Anticipo de Intereses" readonly="1"/>
+                                <field name="fecha_anticipo_intereses" string="Fecha de Anticipo de Intereses" readonly="1"/>
+                            </group>
+                     </group>
+                     <notebook name="intereses_fideicomiso">
+                         <page string="Cálculo de Intereses">
+                             <field name="intereses_ids">
+                                <tree string="Intereses" readonly="1">
+                                    <field name="mes_intereses" string="Mes" />
+                                    <field name="salario_diario" string="Salario Integral Diario" />
+                                    <field name="tasa_intereses" string="Tasa de Interés" />
+                                    <field name="monto_intereses" string="Intereses" />
+                                </tree>
+                             </field>
+                         </page>
+                     </notebook>
+                </form >
+            </field>
+        </record>
+        <!--  vista formulario fin-->
+
+        <!--busqueda inicio-->
+        <record id="view_hr_historico_fideicomiso_search" model="ir.ui.view">
+            <field name="name">hr.historico.fideicomiso.search</field>
+            <field name="model">hr.historico.fideicomiso</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Audit Logs">
+                    <field name="employee_id"/>
+                    <field name="cedula_identidad"/>
+	                <newline/>
+                </search>
+            </field>
+        </record>
+        <!--busqueda fin-->
+
+        <record id="action_hr_historico_fideicomiso" model="ir.actions.act_window">
+            <field name="name">Prestaciones Sociales</field>
+            <field name="res_model">hr.historico.fideicomiso</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_historico_fideicomiso_tree"/>
+            <field name="help" type="html">
+
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Lista del Historial de Prestaciones Sociales
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!--menu item-->
+        <!--<menuitem action="action_hr_payslip_run_tree" id="menu_hr_payslip_run" parent="menu_hr_root_payroll"/>-->
+        <menuitem id="menu_hr_historico_fideicomiso" name="Historico de Prestaciones" action="action_hr_historico_fideicomiso" parent="hr_payroll.menu_hr_root_payroll"/>
+    </data>
+</openerp>
