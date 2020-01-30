@@ -227,7 +227,7 @@ class IslrWhDoc(osv.osv):
 
     _constraints = [
         (_check_partner,
-         'Error! The partner must be income withholding agent.',
+         'Error! The partner must be income withholding agent. 1',
          ['partner_id']),
     ]
 

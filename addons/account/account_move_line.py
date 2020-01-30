@@ -662,7 +662,7 @@ class account_move_line(osv.osv):
         return True
 
     _constraints = [
-        (_check_no_view, 'You cannot create journal items on an account of type view or consolidation.', ['account_id']),
+        (_check_no_view, '\n \n No puede crear elementos de diario en una cuenta de Tipo Vista o Consolidación.', ['account_id.name']),
         (_check_no_closed, 'You cannot create journal items on closed account.', ['account_id']),
         (_check_company_id, 'Account and Period must belong to the same company.', ['company_id']),
         (_check_date, 'The date of your Journal Entry is not in the defined period! You should change the date or remove this constraint from the journal.', ['date']),

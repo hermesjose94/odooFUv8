@@ -210,7 +210,7 @@ class IslrWhDoc(osv.osv):
     }
 
     def _check_partner(self, cr, uid, ids, context=None):
-        """ Determine if a given partner is a Income Withholding Agent
+        """ Determinar si un cliente/proveedor es un agente de retención de ingresos
         """
         context = context or {}
         rp_obj = self.pool.get('res.partner')
@@ -220,14 +220,13 @@ class IslrWhDoc(osv.osv):
                     obj.partner_id).islr_withholding_agent:
             return True
         if obj.type in ('in_invoice', 'in_refund') and \
-                rp_obj._find_accounting_partner(
-                    obj.company_id.partner_id).islr_withholding_agent:
+                (obj.company_id.partner_id).islr_withholding_agent:
             return True
         return False
 
     _constraints = [
         (_check_partner,
-         'Error! The partner must be income withholding agent.',
+         'Error! The partner must be income withholding agent. 2',
          ['partner_id']),
     ]
 
@@ -281,8 +280,8 @@ class IslrWhDoc(osv.osv):
         return brw.automatic_income_wh or False
 
     def compute_amount_wh(self, cr, uid, ids, context=None):
-        """ Calculate the total withholding each invoice
-        associated with this document
+        """ Calcule la retención total de cada factura
+            asociada con este documento
         """
         context = context or {}
         ids = isinstance(ids, (int, long)) and [ids] or ids
@@ -292,7 +291,7 @@ class IslrWhDoc(osv.osv):
         iwd_brw = self.browse(cr, uid, ids[0], context=context)
         if not iwd_brw.date_uid:
             raise osv.except_osv(
-                _('Missing Date !'), _("Please Fill Voucher Date"))
+                _('Missing Date !'), _("Por favor complete la fecha del comprobante."))
         period_ids = self.pool.get('account.period').search(
             cr, uid, [('date_start', '<=', iwd_brw.date_uid),
                       ('date_stop', '>=', iwd_brw.date_uid)])
@@ -957,8 +956,8 @@ class IslrWhDocInvoices(osv.osv):
         return res_ids
 
     def _get_wh(self, cr, uid, ids, concept_id, context=None):
-        """ Return a dictionary containing all the values of the retention of an
-        invoice line.
+        """ Devuelve un diccionario que contiene todos los valores
+        de la retención de una línea de factura.
         @param concept_id: Withholding reason
         """
         # TODO: Change the signature of this method
@@ -978,8 +977,8 @@ class IslrWhDocInvoices(osv.osv):
             cr, uid, iwdl_brw.invoice_id)
         wh_agent = wh_agent
         apply_income = not vendor.islr_exempt
-        residence = self._get_residence(cr, uid, vendor, buyer)
-        nature = self._get_nature(cr, uid, vendor)
+        residence = self._get_residence(cr, uid, buyer, buyer)
+        nature = self._get_nature(cr, uid, buyer)
 
         concept_id = iwdl_brw.concept_id.id
         # rate_base,rate_minimum,rate_wh_perc,rate_subtract,rate_code,rate_id,
@@ -1200,9 +1199,8 @@ class IslrWhDocInvoices(osv.osv):
         retention agent.
         """
         rp_obj = self.pool.get('res.partner')
-        inv_part_id = rp_obj._find_accounting_partner(invoice.partner_id)
-        comp_part_id = rp_obj._find_accounting_partner(
-            invoice.company_id.partner_id)
+        inv_part_id = (invoice.partner_id)
+        comp_part_id = (invoice.company_id.partner_id)
         if invoice.type in ('in_invoice', 'in_refund'):
             vendor = inv_part_id
             buyer = comp_part_id
@@ -1212,11 +1210,17 @@ class IslrWhDocInvoices(osv.osv):
         return (vendor, buyer, buyer.islr_withholding_agent)
 
     def _get_residence(self, cr, uid, vendor, buyer):
-        """It determines whether the tax form buyer address is the same
-        that the seller, then in order to obtain the associated rate.
-        Returns True if a person is resident. Returns
-        False if is not resident.
         """
+        Determina si la dirección del comprador es la misma que la del vendedor
+        y luego para obtener la tasa asociada.
+        Devuelve True si una persona es residente.
+        Devuelve False si no es residente.
+        """
+        # raise osv.except_osv(
+        #         _('¡Acción Inválida!'),
+        #         _("Impossible '%s'"
+        #           " address!") % (
+        #               buyer))
         vendor_address = self._get_country_fiscal(cr, uid, vendor)
         buyer_address = self._get_country_fiscal(cr, uid, buyer)
         if vendor_address and buyer_address:
@@ -1235,8 +1239,8 @@ class IslrWhDocInvoices(osv.osv):
         if not acc_part_id.vat:
             raise osv.except_osv(
                 _('Invalid action !'),
-                _("Impossible income withholding, because the partner '%s' has"
-                  " not vat associated!") % (acc_part_id.name))
+                _("Imposible la retención de ingresos, porque el socio '%s'"
+                  " no se ha asociado.") % (acc_part_id.name)) # Hola
         else:
             if acc_part_id.vat[2:3] in 'VvEe' or acc_part_id.spn:
                 return True
@@ -1367,9 +1371,9 @@ class IslrWhDocInvoices(osv.osv):
         acc_part_id = rp_obj._find_accounting_partner(partner_id)
         if not acc_part_id.country_id:
             raise osv.except_osv(
-                _('Invalid action !'),
+                _('¡Acción Inválida!'),
                 _("Impossible income withholding, because the partner '%s'"
-                  " country has not been defined in the address!") % (
+                  " country has not been defined in the address! 1") % (
                       acc_part_id.name))
         else:
             return acc_part_id.country_id.id
