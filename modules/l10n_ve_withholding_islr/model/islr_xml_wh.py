@@ -395,13 +395,12 @@ class IslrXmlWhLine(osv.osv):
     _rec_name = 'partner_id'
 
     def onchange_partner_vat(self, cr, uid, ids, partner_id, context=None):
-        """ Changing the partner, the partner_vat field is updated.
+        """ Al cambiar el cliente/proveedor, se actualiza el campo partner_vat.
         """
         context = context or {}
         rp_obj = self.pool.get('res.partner')
-        acc_part_brw = rp_obj._find_accounting_partner(rp_obj.browse(
-            cr, uid, partner_id))
-        return {'value': {'partner_vat': acc_part_brw.vat[2:]}}
+        acc_part_brw = (rp_obj.browse(cr, uid, partner_id))
+        return {'value': {'partner_vat': acc_part_brw.vat[2:12] if acc_part_brw.vat else ''}}
 
     def onchange_code_perc(self, cr, uid, ids, rate_id, context=None):
         """ Changing the rate of the islr, the porcent_rete and concept_code fields

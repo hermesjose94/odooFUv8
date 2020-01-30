@@ -153,8 +153,8 @@
                                                         <field name="move_id"/>
                                                     </group>
                                                     <group>
-                                                        <separator string="Please, if there are no concepts loaded, Click on 'Load concepts'" colspan="4"/>
-                                                        <button type="object" name="load_concepts" string="Load Concepts" icon="gtk-execute" colspan="1"/>
+                                                        <!-- <separator string="Please, if there are no concepts loaded, Click on 'Load concepts'" colspan="4"/>
+                                                        <button type="object" name="load_concepts" string="Load Concepts" icon="gtk-execute" colspan="1"/> -->
                                                     </group>
                                                 </page>
                                             </notebook>
