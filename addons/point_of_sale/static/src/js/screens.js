@@ -89,6 +89,8 @@ function openerp_pos_screens(instance, module){ //module is instance.point_of_sa
             return this.current_mode;
         },
         set_current_screen: function(screen_name,params,refresh){
+            console.log("MIRAR 3");
+            
             var screen = this.screen_set[screen_name];
             if(!screen){
                 console.error("ERROR: set_current_screen("+screen_name+") : screen not found");
@@ -1083,16 +1085,16 @@ function openerp_pos_screens(instance, module){ //module is instance.point_of_sa
                     },
                 });
            
-            if( this.pos.config.iface_invoicing ){
-                this.add_action_button({
-                        label: _t('Invoice'),
-                        name: 'invoice',
-                        icon: '/point_of_sale/static/src/img/icons/png48/invoice.png',
-                        click: function(){
-                            self.validate_order({invoice: true});
-                        },
-                    });
-            }
+            // if( this.pos.config.iface_invoicing ){
+            //     this.add_action_button({
+            //             label: _t('Invoices'),
+            //             name: 'invoice',
+            //             icon: '/point_of_sale/static/src/img/icons/png48/invoice.png',
+            //             click: function(){
+            //                 self.validate_order({invoice: true});
+            //             },
+            //         });
+            // }
 
             if( this.pos.config.iface_cashdrawer ){
                 this.add_action_button({
@@ -1341,15 +1343,20 @@ function openerp_pos_screens(instance, module){ //module is instance.point_of_sa
 
             }else{
                 this.pos.push_order(currentOrder) 
-                if(this.pos.config.iface_print_via_proxy){
-                    var receipt = currentOrder.export_for_printing();
-                    this.pos.proxy.print_receipt(QWeb.render('XmlReceipt',{
-                        receipt: receipt, widget: self,
-                    }));
-                    this.pos.get('selectedOrder').destroy();    //finish order and go back to scan screen
-                }else{
-                    this.pos_widget.screen_selector.set_current_screen(this.next_screen);
-                }
+                console.log(currentOrder);
+                
+                // if(this.pos.config.iface_print_via_proxy){
+                //     console.log("MIRAR 1");
+                    
+                //     var receipt = currentOrder.export_for_printing();
+                //     this.pos.proxy.print_receipt(QWeb.render('XmlReceipt',{
+                //         receipt: receipt, widget: self,
+                //     }));
+                //     this.pos.get('selectedOrder').destroy();    //finish order and go back to scan screen
+                // }else{
+                    console.log("MIRAR 2");
+                    // this.pos_widget.screen_selector.set_current_screen(this.next_screen);
+                // }
             }
 
             // hide onscreen (iOS) keyboard 
