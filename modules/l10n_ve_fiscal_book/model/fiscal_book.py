@@ -23,6 +23,10 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
+#    Edited By:
+#    Company: Clickway Producciones C.A.        31/01/2020
+#############################################################################
+
 import time
 
 from openerp.addons import decimal_precision as dp
@@ -675,6 +679,8 @@ class FiscalBook(orm.Model):
         return res
 
     def update_book(self, cr, uid, ids, context=None):
+        # Aqui
+        # raise osv.except_osv(('Advertencia!'), ('Esto es un error!'))
         """ It generate and fill book data with invoices, wh iva lines and
         taxes. """
         context = context or {}

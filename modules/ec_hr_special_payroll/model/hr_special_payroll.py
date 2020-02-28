@@ -1,6 +1,8 @@
 # coding: utf-8
 # from openerp import fields, models, api
-# Edit for Clickway 31/01/2020
+#    Edited By:
+#    Company: Clickway Producciones C.A.        31/01/2020
+#############################################################################
 from datetime import datetime, timedelta, date
 import calendar
 from openerp.osv import fields, osv

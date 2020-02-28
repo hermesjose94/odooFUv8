@@ -558,8 +558,9 @@ class FiscalBook(orm.Model):
 # - 
     @api.v7
     def update_book_lines(self, cr, uid, fb_id, context=None):
-        """ It updates the fiscal book lines values. Cretate, order and rank
-        the book lines. Creates the book taxes too acorring to lines created.
+        """ Actualiza los valores de las líneas del libro fiscal.
+        Crea, ordena y clasifica las líneas del libro.
+        Crea los impuestos del libro también de acuerdo con las líneas creadas.
         @param fb_id: fiscal book id
         """
         context = context or {}

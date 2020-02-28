@@ -1,4 +1,7 @@
 # coding: utf-8
+#    Edited By:
+#    Company:RefundRefundRefund       31/01/2020
+#############################################################################
 from openerp import fields, models, api
 from openerp.osv import osv
 from openerp.exceptions import Warning
@@ -177,8 +180,8 @@ class hr_payslip(models.Model):
     def hr_verify_sheet(self):
         ctx = self._context.copy() or {}
         is_payoff = self.env.context.get('come_from', False)
-        # <Aqui
-        # raise osv.except_osv(('Advertencia!'), ('Estp %s es un error!',ctx))
+        # Aqui
+        # raise osv.except_osv(('Advertencia!'), ('Esto %s es un error!',ctx))
         payoff_values = {}
         if is_payoff:
             ctx.update({'slip_id':self.ids[0]})

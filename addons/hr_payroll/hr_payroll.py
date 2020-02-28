@@ -19,6 +19,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+#    Edited By:
+#    Company: Clickway Producciones C.A.        31/01/2020
+#############################################################################
 
 import time
 from datetime import date
@@ -569,8 +572,7 @@ class hr_payslip(osv.osv):
 
         for contract in self.pool.get('hr.contract').browse(cr, uid, contract_ids, context=context):
             employee = contract.employee_id
-            # Aqui
-            # inputs_obj = self.pool.get('hr.payslip.worked_days')
+            inputs_obj = self.pool.get('hr.payslip.worked_days')
             payslip_obj = self.pool.get('hr.payslip')
             payslip = payslip_obj.browse(cr, uid, payslip_id, context=context)
             worked_days = {}
@@ -617,18 +619,27 @@ class hr_payslip(osv.osv):
                         'register_id': rule.register_id.id,
                         'amount': amount,
                         'employee_id': contract.employee_id.id,
+                        #_30ENE2020_hermesjose94: se definen filtros para guardar
+                        #                                  los datos correspondientes de nomina.
                         # worked_days = dias laborados
-                        # hr.payslip.saturdays + sundays = dias libres 
-                        # hr.payslip.sundays = domingos
-                        # hr.contract.feriados_no_lab_value = dias de descanso contract
-                        # hr.payslip.mondays = paro forzoso
+                        'quantity': worked_days['WORK100'].number_of_days
+                            # hr.payslip.saturdays + sundays = dias libres 
+                            if rule.code == '1' else (payslip.saturdays + payslip.sundays) 
+                                # hr.payslip.sundays = domingos
+                                if rule.code == '2' else payslip.sundays 
+                                    # hr.contract.feriados_no_lab_value = dias de descanso contract
+                                    if rule.code == '3' else contract.feriados_no_lab_value 
+                                        # hr.payslip.mondays = paro forzoso
+                                        if rule.code == 'DD' else payslip.mondays
+                                            if rule.code == 'PF' else 0.4 if rule.code == '200' else 0.1
+                                                if rule.code == '203' else 0.2 if rule.code == '302' else 1,
                         # = ret sso
                         # 1% = ret faov
                         # 2% = aporte patr faov
                         # = total asig
                         # = total deduc
                         # = total a pagar
-                        'quantity': worked_days['WORK100'].number_of_days if rule.code == '1' else (payslip.saturdays + payslip.sundays) if rule.code == '2' else payslip.sundays if rule.code == '3' else contract.feriados_no_lab_value if rule.code == 'DD' else payslip.mondays if rule.code == 'PF' else 0.4 if rule.code == '200' else 0.1 if rule.code == '203' else 0.2 if rule.code == '302' else 1,
+                        
                         'rate': rate,
                     }
                 else:
