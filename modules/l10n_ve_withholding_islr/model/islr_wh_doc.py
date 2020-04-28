@@ -1240,7 +1240,7 @@ class IslrWhDocInvoices(osv.osv):
             raise osv.except_osv(
                 _('Invalid action !'),
                 _("Imposible la retención de ingresos, porque el socio '%s'"
-                  " no se ha asociado.") % (acc_part_id.name)) # Hola
+                  " no se ha asociado.") % (acc_part_id)) # Hola
         else:
             if acc_part_id.vat[2:3] in 'VvEe' or acc_part_id.spn:
                 return True
@@ -1369,12 +1369,13 @@ class IslrWhDocInvoices(osv.osv):
         context = context or {}
         rp_obj = self.pool.get('res.partner')
         acc_part_id = rp_obj._find_accounting_partner(partner_id)
+        # return 240
         if not acc_part_id.country_id:
             raise osv.except_osv(
                 _('¡Acción Inválida!'),
                 _("Impossible income withholding, because the partner '%s'"
-                  " country has not been defined in the address! 1") % (
-                      acc_part_id.name))
+                  " country has not been defined in the address! 10") % (
+                      partner_id))
         else:
             return acc_part_id.country_id.id
 

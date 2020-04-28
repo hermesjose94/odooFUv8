@@ -1,4 +1,7 @@
 # coding: utf-8
+#    Edited By:
+#    Company:RefundRefundRefund       31/01/2020
+#############################################################################
 from openerp import fields, models, api
 from openerp.osv import osv
 from openerp.exceptions import Warning
@@ -97,11 +100,13 @@ class hr_payslip(models.Model):
         ts = 0
         ult_liqu_colectiva = config_obj.hr_get_parameter(cr, uid,'hr.payslip.ultima.liquidacion.colectiva',True)
         if date_start and date_end:
-            # se le suma un dia a la fecha de finalizacion de la relacion laboral porque se considera que ese dia el empleado trabaja
+            # se le suma un dia a la fecha de finalizacion de la relacion laboral
+            # porque se considera que ese dia el empleado trabaja
             fecha_temp = datetime.strptime(date_end, DEFAULT_SERVER_DATE_FORMAT)
             fecha_temp = fecha_temp + relativedelta(days=1)
             date_end = datetime.strftime(fecha_temp, DEFAULT_SERVER_DATE_FORMAT)
-            # TODO si se requiere se puede hacer persistir en el contrato la fecha de culminacion. Solo cuando se confirme la liquidacion
+            # TODO si se requiere se puede hacer persistir en el contrato la fecha de culminacion.
+            # Solo cuando se confirme la liquidacion
             tiempo_servicio = self.get_years_service(date_start, date_end)
             ts = tiempo_servicio['anios'] + 1 if tiempo_servicio['meses'] >= 6 else tiempo_servicio['anios']
             if datetime.strptime(date_start, DEFAULT_SERVER_DATE_FORMAT) < datetime.strptime(ult_liqu_colectiva,
@@ -175,6 +180,8 @@ class hr_payslip(models.Model):
     def hr_verify_sheet(self):
         ctx = self._context.copy() or {}
         is_payoff = self.env.context.get('come_from', False)
+        # Aqui
+        # raise osv.except_osv(('Advertencia!'), ('Esto %s es un error!',ctx))
         payoff_values = {}
         if is_payoff:
             ctx.update({'slip_id':self.ids[0]})
@@ -255,34 +262,58 @@ class hr_payslip(models.Model):
         limite = 2
         dias_b_v = 0
         config_obj = self.env['hr.config_parameter']
+        utilidades_obj = self.env["hr.payroll.utilidades"]
         vacaciones_obj = self.env["hr.payroll.dias.vacaciones"]
         dias_str = config_obj.hr_get_parameter( 'hr.dias.x.mes')
 
         # SALARIO BASE
         sal_mensual = self.employee_id.contract_id.wage
 
-        #SALARIO PROMEDIO
+        # #SALARIO PROMEDIO
         tipo_pago = self.employee_id.contract_id.schedule_pay
         if tipo_pago == 'monthly':
             limite=1
         elif tipo_pago == 'weekly':
             #TODO obtener el numero de lunes
             limite = self.get_mondays(self.date_to)
-        promedio = self.calculo_sueldo_promedio(self.employee_id, self.date_to, 0, 'liquidacion', limite)
-        #CALCULO DE ALICUOTAS
-        vacation_id = vacaciones_obj.search([('service_years', '=', self.tiempo_servicio_year)])
-        if vacation_id:
-            dias_b_v = vacaciones_obj.browse(vacation_id[0]).pay_days
 
-        alic_b_v = self.calculo_alic_bono_vac(sal_mensual+promedio, dias_b_v)
-        alic_u =  self.calculo_alic_util(sal_mensual+promedio,alic_b_v)
-        values.update({'salario_basico':sal_mensual,
-                       'salario_basico_diario':sal_mensual/float(dias_str),
+        promedio = self.calculo_sueldo_promedio(self.employee_id, self.date_to, 0, 'liquidacion', limite)
+
+        #CALCULO DE VACACIONES
+        vacation_id = vacaciones_obj.search([('service_years', '=', self.tiempo_servicio_year)]).id
+        if self.tiempo_servicio_year != 0:
+            if vacation_id:
+                dias_b_v = vacaciones_obj.browse(vacation_id).pay_days
+        else:
+            dias_b_v = 15
+        
+        #CALCULO DE UTILIDADES --> 
+        # Objeto = hr.payroll.utilidades
+        # Campo = utilidades_pay_days
+        utilidades_id = utilidades_obj.search([('utilidades_name', '=', datetime.now().year)]).id
+        if utilidades_id:
+            alic_u = utilidades_obj.browse(utilidades_id).utilidades_pay_days
+        else:
+            alic_u = 90
+
+        salario_diario = sal_mensual/float(dias_str)
+        bono_vacacional = (salario_diario*dias_b_v)/12
+        utilidades = (salario_diario*alic_u)/12
+        values.update({
+                    #    'tiempo_servicio_dias':,
+                    #    'tiempo_servicio_meses':,
+                    #    'tiempo_servicio_year':,
+                    #    'month_worked_year_str',
+                    #    'tiempo_servicio',
+                       'salario_basico':sal_mensual,
+                       'salario_basico_diario':salario_diario,
                        'salario_prom_mensual': sal_mensual + promedio,
                        'salario_prom_diairo': (sal_mensual + promedio) / float(dias_str),
-                       'alic_bono_vac_liq': alic_b_v,
-                       'alic_util_liq': alic_u,
-                       'salario_integral':(sal_mensual+promedio)/float(dias_str) + alic_b_v + alic_u})
+                       'alic_bono_vac_liq': bono_vacacional,
+                       'alic_util_liq': utilidades,
+                        # 'notes': limite,
+                       'salario_integral':sal_mensual+bono_vacacional+utilidades
+                       })
         return values
 
     def get_mondays(self,fecha):
@@ -315,5 +346,3 @@ class hr_payroll_structure(models.Model):
                     all_rules += self.pool.get('hr.salary.rule')._recursive_search_of_rules(cr, uid, struct.rule_ids,
                                                                                         context=context)
             return all_rules
-
-

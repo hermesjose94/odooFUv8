@@ -81,11 +81,11 @@ class hr_config_parameter(osv.osv):
                     if not es_cadena:
                         if not valor_str.isdigit():
                             raise osv.except_osv(('Advertencia!'), (
-                            u'El parámetro %s no esta correctamente configurado.\n Por favor comuníquese con el administrador del sistema') % (
+                            u'El parámetro %s no esta correctamente configurado.\n Por favor comuníquese con el administrador del sistema1.') % (
                                                  parameter))
                 else:
                     raise osv.except_osv(('Advertencia!'), (
-                    u'El parámetro %s no esta correctamente configurado.\n Por favor comuníquese con el administrador del sistema') % (
+                    u'El parámetro %s no esta correctamente configurado.\n Por favor comuníquese con el administrador del sistema2.') % (
                                          parameter))
             return valor_str
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

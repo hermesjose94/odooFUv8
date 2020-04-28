@@ -14,6 +14,9 @@
 // bind and unbind actions on widgets and devices. The screen_selector guarantees
 // that only one screen is shown at the same time and that show() is called after all
 // hide()s
+//      Edited By:
+//      Company: Clickway Producciones C.A.        21/02/2020
+////////////////////////////////////////////////////////////////////////////////////////
 
 function openerp_pos_screens(instance, module){ //module is instance.point_of_sale
     var QWeb = instance.web.qweb,
@@ -89,6 +92,7 @@ function openerp_pos_screens(instance, module){ //module is instance.point_of_sa
             return this.current_mode;
         },
         set_current_screen: function(screen_name,params,refresh){
+            
             var screen = this.screen_set[screen_name];
             if(!screen){
                 console.error("ERROR: set_current_screen("+screen_name+") : screen not found");
@@ -1074,25 +1078,27 @@ function openerp_pos_screens(instance, module){ //module is instance.point_of_sa
                     },
                 });
 
+            //_21FEB2020_ramon95: Edicion del Botón para enviar a Impresora
             this.add_action_button({
-                    label: _t('Validate'),
+                    label: _t('Facturar'),
                     name: 'validation',
-                    icon: '/point_of_sale/static/src/img/icons/png48/validate.png',
+                    icon: '/point_of_sale/static/src/img/icons/png48/invoice.png',
                     click: function(){
                         self.validate_order();
                     },
                 });
-           
-            if( this.pos.config.iface_invoicing ){
-                this.add_action_button({
-                        label: _t('Invoice'),
-                        name: 'invoice',
-                        icon: '/point_of_sale/static/src/img/icons/png48/invoice.png',
-                        click: function(){
-                            self.validate_order({invoice: true});
-                        },
-                    });
-            }
+
+            //_21FEB2020_ramon95: Ocultado Botón
+            // if( this.pos.config.iface_invoicing ){
+            //     this.add_action_button({
+            //             label: _t('Invoices'),
+            //             name: 'invoice',
+            //             icon: '/point_of_sale/static/src/img/icons/png48/invoice.png',
+            //             click: function(){
+            //                 self.validate_order({invoice: true});
+            //             },
+            //         });
+            // }
 
             if( this.pos.config.iface_cashdrawer ){
                 this.add_action_button({
@@ -1340,14 +1346,51 @@ function openerp_pos_screens(instance, module){ //module is instance.point_of_sa
                 });
 
             }else{
-                this.pos.push_order(currentOrder) 
+
+                //_21FEB2020_ramon95: USO DE API para BIXOLON
+                this.pos.push_order(currentOrder)               
                 if(this.pos.config.iface_print_via_proxy){
                     var receipt = currentOrder.export_for_printing();
+                    console.log("entra");
+                    
                     this.pos.proxy.print_receipt(QWeb.render('XmlReceipt',{
                         receipt: receipt, widget: self,
                     }));
                     this.pos.get('selectedOrder').destroy();    //finish order and go back to scan screen
                 }else{
+                    var receipt = currentOrder.export_for_printing();                                        
+                    console.log(receipt);                    
+                    productos = [];
+                    for (var i = 0; i < receipt.orderlines.length; i++) {
+                        producto = {
+                            "nombre" : receipt.orderlines[i]["product_name"],
+                            "precio" : receipt.orderlines[i]["price"],
+                            "cantidad" : receipt.orderlines[i]["quantity"],
+                            "tasa" : (receipt.orderlines[i]["tax"] == 0) ? " " : "!",
+                        }
+                        productos.push(producto);
+                    }       
+                    
+                    json = {
+                        "nombre": receipt.client,
+                        "cedula": "***",
+                        "direccion": "***",
+                        "telefono": "***",
+                        "productos":productos
+                    }
+
+                    console.log(JSON.stringify(json));
+                    
+                    //_21FEB2020_ramon95: HOST DE IMPRESORA
+                    $.ajax({
+                    url:  "http://192.168.10.73:8000/api/factura",
+                    data: (json),
+                    type: 'POST',
+                    dataType: 'json',
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });        
                     this.pos_widget.screen_selector.set_current_screen(this.next_screen);
                 }
             }

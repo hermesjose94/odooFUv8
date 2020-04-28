@@ -23,7 +23,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
 #    Edited By:
-#    Company: Clickway Producciones C.A.
+#    Company: Clickway Producciones C.A.        31/01/2020
 #############################################################################
 
 import time

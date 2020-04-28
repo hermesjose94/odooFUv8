@@ -1643,7 +1643,8 @@ class res_partner(models.Model):
         '''
         Find the partner for which the accounting entries will be created
         '''
-        return partner.commercial_partner_id
+        return partner
+        # return partner.commercial_partner_id
 
 class mail_compose_message(models.Model):
     _inherit = 'mail.compose.message'

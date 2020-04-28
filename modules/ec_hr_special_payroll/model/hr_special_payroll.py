@@ -1,5 +1,8 @@
 # coding: utf-8
 # from openerp import fields, models, api
+#    Edited By:
+#    Company: Clickway Producciones C.A.        31/01/2020
+#############################################################################
 from datetime import datetime, timedelta, date
 import calendar
 from openerp.osv import fields, osv
@@ -72,7 +75,8 @@ class hr_payslip(osv.osv):
         elif 'utilidad' in tipo_nomina.lower():
             codes_str = config_obj.hr_get_parameter(cr, uid, 'hr.payroll.codigos.salario.integral.utilidades', True)
         elif 'liquidacion' in tipo_nomina.lower():
-            codes_str = config_obj.hr_get_parameter(cr, uid, 'hr.payroll.codigos.salario.integral.liquidaciones', True)
+            codes_str = 1
+            # codes_str = config_obj.hr_get_parameter(cr, uid, 'hr.payroll.codigos.salario.integral.liquidacion', True)
         else:
             codes_str = config_obj.hr_get_parameter(cr, uid, 'hr.payroll.codigos.salario.integral', True)
         code = str(codes_str).strip().split(
